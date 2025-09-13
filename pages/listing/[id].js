@@ -1,3 +1,4 @@
+export const runtime = 'experimental-edge';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { generateClient } from "aws-amplify/api";
