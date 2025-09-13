@@ -403,9 +403,9 @@
     "description": "Need help? Our support team is here for you. Fill out the form below and we’ll respond as soon as possible."
   },
   "CarsByRegion": {
-    "title": "Find Cars for Sale in {region} Cameroon",
+    "title": "Find Cars for Sale by region in Cameroon",
     "view_cars": "View cars in {region}",
-    "description":"Find a wide selection of cars for sale in {region}, Cameroon. Discover your ideal vehicle at the best price with reliable and up-to-date listings.",
+    "description":"Find a wide selection of cars for sale in the various regions of  Cameroon. Discover your ideal vehicle at the best price with reliable and up-to-date listings.",
     "regions": {
       "Adamawa": "Adamawa",
       "Centre": "Centre",
@@ -420,9 +420,9 @@
     }
   },
    "CarsByCity": {
-    "title": "Car listings for sale in {city}, Cameroon",
+    "title": "Car listings for sale by city in Cameroon",
     "viewCars": "View cars in {city}",
-    "description": "Browse cars for sale in {city}, Cameroon. Find affordable new and used vehicles from trusted sellers. Buy your next car easily today."
+    "description": "Browse cars for sale by city in Cameroon. Find affordable new and used vehicles from trusted sellers. Buy your next car easily today."
     
   },
   "ManufacturerCarsForSale": {
