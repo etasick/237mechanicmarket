@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API, graphqlOperation } from "aws-amplify";
-import { listListings } from "@/graphql/queries";
-import { updateListing } from "@/graphql/mutations";
+import { listListings } from "@/src/graphql/queries";
+import { updateListing } from "@/src/graphql/mutations";
 
 export default function AdminListings() {
   const [listings, setListings] = useState([]);
