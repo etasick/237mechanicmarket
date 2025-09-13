@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "237mechanicmarket",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "auth237mechanicmarket742f03c1",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2025-07-31T20:41:44.944Z"
+}

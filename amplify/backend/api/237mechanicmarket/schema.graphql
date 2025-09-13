@@ -1,0 +1,121 @@
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } }
+enum ListingStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum Currency {
+  USD
+  EUR
+  GBP
+  XAF
+  XOF
+}
+
+type Category @model
+  @auth(rules: [
+    { allow: public,provider: apiKey, operations: [read] },
+    { allow: groups, groups: ["admin"], operations: [create, update, delete, read] },
+    
+  ]) {
+  id: ID!
+  name: String!
+  description: String!
+  slug:String!
+  listings: [Listing] @hasMany(indexName: "byCategory", fields: ["id"])
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+type Listing @model
+  @auth(rules: [
+    { allow: public,provider: apiKey, operations: [read] },
+    { allow: owner, ownerField: "ownerId", operations: [create, update, delete, read] },
+    { allow: groups, groups: ["admin"], operations: [create, update, delete, read] },
+    
+  ]) {
+  id: ID!
+  title: String!
+  description: String!
+  price: Float
+  currency: Currency!
+
+  # Relationship to Category
+  categoryId: ID! @index(name: "byCategory", sortKeyFields: ["createdAt"])
+  category: Category @belongsTo(fields: ["categoryId"])
+
+  # Owner info
+  ownerId: ID! @index(name: "byOwner", sortKeyFields: ["createdAt"])
+  ownerName: String
+
+  # Images
+  mainImageUrl: String!
+  galleryImageUrls: [String!]
+
+  # Status and approval
+  status: ListingStatus! @index(name: "byStatus", sortKeyFields: ["createdAt"])
+  statusReason: String
+  approvedBy: ID
+  approvedAt: AWSDateTime
+
+  # Other fields
+  location: String
+  region: String
+  condition: String
+  views: Int
+  isFeatured: Boolean
+  specs: AWSJSON
+  features: [String]
+  contactPhone: String
+
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+
+
+type Message @model
+  @auth(rules: [
+    { allow: groups, groups: ["admin"], operations: [create, update, delete, read] },
+    { allow: owner, ownerField: "ownerId", operations: [create, update, delete, read] },
+    { allow: public, operations: [create] }
+  ]) {
+  id: ID!
+  listingId: ID!
+  listingTitle: String
+  fromUserId: ID
+  fromName: String
+  fromEmail: String
+  body: String!
+  ownerId: ID!
+  sentAt: AWSDateTime
+  answered: Boolean
+  answeredAt: AWSDateTime
+}
+
+type AppUser @model
+  @auth(rules: [
+    { allow: owner, ownerField: "id" },
+    { allow: groups, groups: ["admin"] }
+  ]) {
+  id: ID!
+  username: String!
+  displayName: String
+  phone: String
+  avatarUrl: String
+  isAdmin: Boolean
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+input ApproveListingInput {
+  id: ID!
+  approve: Boolean!
+  reason: String
+}
+
+type Mutation {
+  approveListing(input: ApproveListingInput!): Listing
+    @auth(rules: [{ allow: groups, groups: ["admin"] }])
+}

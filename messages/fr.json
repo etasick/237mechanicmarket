@@ -1,0 +1,719 @@
+{
+  "header": {
+    "logo": "Marché 237Mechanic",
+    "login": "Se connecter",
+    "signup": "Créer un compte",
+    "sell": "Vendre un véhicule ou une pièce",
+    "dashboard": "Tableau de bord",
+    "listings": "Mes annonces",
+    "settings": "Paramètres",
+    "logout": "Se déconnecter",
+    "account": "Mon compte"
+  },
+  "HomePage": {
+    "title": "237Mechanic Marketplace : Acheter et vendre des voitures, motos, pièces détachées et plus au Cameroun",
+    "description":"Achetez et vendez des voitures, motos et pièces détachées au Cameroun en toute confiance. Parcourez les annonces approuvées de vendeurs fiables dans tout le pays sur 237Mechanic Marketplace.",
+    "hero": {
+      "title": "Trouvez votre prochain véhicule ou pièce au Cameroun",
+      "subtitle": "Parcourez les annonces approuvées de vendeurs fiables à travers tout le pays.",
+      "searchPlaceholder": "Rechercher par titre, marque, modèle, mot-clé…",
+      "searchButton": "Rechercher",
+      "allCategories": "Tout"
+    },
+    "brands": {
+      "title": "Marques populaires",
+      "clear": "Réinitialiser",
+      "items": {
+        "toyota": "Toyota",
+        "mercedes": "Mercedes",
+        "nissan": "Nissan",
+        "hyundai": "Hyundai",
+        "kia": "Kia",
+        "honda": "Honda",
+        "bmw": "BMW",
+        "peugeot": "Peugeot",
+        "renault": "Renault",
+        "volkswagen": "Volkswagen",
+        "lexus": "Lexus",
+        "mazda": "Mazda"
+      }
+    },
+    "regions": {
+      "title": "Régions",
+      "clear": "Réinitialiser",
+      "items": {
+        "littoral": "Littoral",
+        "centre": "Centre",
+        "northwest": "Nord-Ouest",
+        "southwest": "Sud-Ouest",
+        "west": "Ouest",
+        "adamawa": "Adamaoua",
+        "east": "Est",
+        "farnorth": "Extrême-Nord",
+        "north": "Nord",
+        "south": "Sud"
+      }
+    },
+    "cities": {
+      "title": "Villes populaires",
+      "clear": "Réinitialiser",
+      "items": {
+        "douala": "Douala",
+        "yaounde": "Yaoundé",
+        "buea": "Buéa",
+        "bamenda": "Bamenda",
+        "garoua": "Garoua",
+        "maroua": "Maroua",
+        "bafoussam": "Bafoussam",
+        "limbe": "Limbe",
+        "kumba": "Kumba",
+        "ebolowa": "Ébolowa"
+      }
+    },
+    "categories": {
+      "cars": "Voitures",
+      "motorcycles": "Motos",
+      "spare-parts": "Pièces détachées"
+    },
+    "filters": {
+      "manufacturer": "Fabricant",
+      "model": "Modèle",
+      "minPrice": "Prix Min",
+      "maxPrice": "Prix Max",
+      "clearAll": "Réinitialiser tout",
+      "postListing": "+ Publier une annonce"
+    },
+    "listings": {
+      "title": "Annonces",
+      "loading": "Chargement du marché…",
+      "noResults": "Aucune annonce ne correspond à vos filtres.",
+      "loadingMore": "Chargement…",
+      "loadMore": "Charger plus",
+      "viewDetails": "Voir les détails",
+      "specs": {
+        "brand": "Marque",
+        "model": "Modèle",
+        "year": "Année",
+        "fuel": "Carburant",
+        "transmission": "Trans",
+        "condition": "État"
+      }
+    }
+  },
+  "Footer": {
+    "marketplace": {
+      "title": "237Mechanic Marketplace",
+      "postListing": "Publier une annonce",
+      "carsForSale": "Voitures à vendre",
+      "motorcyclesForSale": "Motos à vendre",
+      "sparePartsForSale": "Pièces détachées à vendre",
+      "usedCars": "Voitures d'occasion",
+      "newCars": "Voitures neuves",
+      "sellVehicle": "Vendre un véhicule",
+      "sellMyCar": "Vendre ma voiture",
+      "sellMotorcycle": "Vendre une moto",
+      "sellSparePart": "Vendre une pièce détachée",
+      "contactUs": "Contactez-nous",
+      "terms": "Termes et conditions",
+      "aboutUs": "À propos de nous"
+    },
+    "manufacturers": {
+      "title": "Fabricants"
+    },
+    "models": {
+      "title": "Modèles Populaires"
+    },
+    "others": {
+      "title": "Autres",
+      "allRegions": "Toutes les régions",
+      "allCities": "Toutes les villes",
+      "featuredListings": "Annonces en vedette",
+      "faqs": "FAQ",
+      "support": "Support"
+    },
+    "copyright": "237Mechanic Marketplace. Tous droits réservés."
+  },
+
+  "SubscribeForm": {
+    "title": "Restez informé",
+    "description": "Recevez les dernières offres et annonces dans votre boîte de réception.",
+    "placeholder": "Entrez votre email",
+    "buttonText": "S'abonner",
+    "successMessage": "Merci pour votre abonnement !",
+    "errorMessage": "Erreur lors de l'abonnement."
+  },
+   "ContactForm": {
+    "title": "Contactez-nous",
+    "description": "Nous aimerions avoir de vos nouvelles. Remplissez le formulaire et nous vous répondrons bientôt.",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "Votre email",
+    "messagePlaceholder": "Votre message",
+    "sendButton": "Envoyer le message",
+    "successMessage": "Message envoyé !",
+    "errorMessage": "Erreur lors de l'envoi du message."
+  },
+  "FAQ": {
+    "title": "Foire aux questions",
+    "approval": {
+      "question": "Comment les annonces sont-elles approuvées ?",
+      "answer": "Toutes les annonces passent par une révision de notre équipe de support avant d'être publiées sur le marché."
+    },
+    "responsibility": {
+      "question": "237Mechanic est-il responsable de mon achat ?",
+      "answer": "Non. Bien que nous travaillions dur pour nous assurer que les annonces sont authentiques, la décision d'achat finale et la responsabilité vous incombent."
+    },
+    "contact": {
+      "question": "Comment contacter le support ?",
+      "answer": "Vous pouvez nous joindre via notre page de support ou en utilisant le formulaire de contact."
+    }
+  },
+  "About": {
+    "title": "À propos de nous",
+    "paragraph1": "Chez ",
+    "marketplaceName": "237Mechanic Marketplace",
+    "paragraph2": ", nous sommes passionnés par la simplification, la sécurité et la transparence de l'achat et de la vente de voitures. Notre plateforme rassemble les concessionnaires et les particuliers pour présenter des annonces automobiles de qualité examinées et approuvées par notre équipe de support.",
+    "paragraph3": "Notre mission est de vous fournir les outils, les informations et les annonces fiables dont vous avez besoin pour prendre la bonne décision pour votre prochain véhicule."
+  },
+
+  "ListingDetails": {
+    "loading": "Chargement de l'annonce...",
+    "galleryImageAlt": "Image de la galerie",
+    "tabs": {
+      "description": "Description",
+      "specifications": "Spécifications",
+      "features": "Caractéristiques"
+    },
+    "sections": {
+      "description": "Description",
+      "specifications": "Spécifications",
+      "features": "Caractéristiques"
+    },
+    "contact": {
+      "title": "Contacter le vendeur",
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "Votre email",
+      "messagePlaceholder": "Écrivez votre message...",
+      "sending": "Envoi en cours...",
+      "sendButton": "Envoyer le message"
+    },
+    "messageSuccess": "Votre message a été envoyé au vendeur !",
+    "messageError": "Échec de l'envoi de votre message. Veuillez réessayer.",
+    "related": {
+      "title": "Annonces similaires"
+    },
+    "specLabels": {
+      "manufacturer": "Fabricant",
+      "model": "Modèle",
+      "year": "Année",
+      "mileage": "Kilométrage",
+      "fuelType": "Type de carburant",
+      "transmission": "Transmission",
+      "driveType": "Type de transmission",
+      "engineSize": "Cylindrée",
+      "color": "Couleur",
+      "bodyType": "Type de carrosserie",
+      "engineCapacity": "Capacité du moteur",
+      "bikeType": "Type de moto",
+      "partName": "Nom de la pièce",
+      "compatibleVehicles": "Véhicules compatibles",
+      "brand": "Marque",
+      "origin": "Origine"
+    }
+  },
+  "CreateListingPage": {
+    "title": "Publier une annonce",
+    "description": "Choisissez le type d'annonce que vous souhaitez publier. Que ce soit une voiture, une moto ou une pièce détachée, nous vous guiderons vers le bon formulaire.",
+    "cards": {
+      "sellCar": {
+        "title": "Vendre une voiture",
+        "description": "Mettez votre voiture en vente en quelques minutes."
+      },
+      "sellMotorcycle": {
+        "title": "Vendre une moto",
+        "description": "Trouvez le bon acheteur pour votre moto."
+      },
+      "sellSparePart": {
+        "title": "Vendre une pièce détachée",
+        "description": "Atteignez les acheteurs à la recherche de pièces automobiles."
+      }
+    }
+  },
+  "SellVehiclePage": {
+    "vehicleTypes": {
+      "car": "Voiture",
+      "motorcycle": "Moto",
+      "sparePart": "Pièce Détachée"
+    },
+    "steps": {
+      "listingInfo": {
+        "title": "Vendre votre {vehicleType}"
+      },
+      "signup": {
+        "title": "Inscrivez-vous pour continuer"
+      },
+      "finalize": {
+        "title": "Finaliser l'annonce"
+      },
+      "uploadImages": {
+        "title": "Télécharger les images"
+      }
+    },
+    "form": {
+      "title": "Titre",
+      "titlePlaceholder": "Entrez le titre",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description",
+      "price": "Prix",
+      "pricePlaceholder": "Entrez le prix",
+      "region": "Région",
+      "regionPlaceholder": "Entrez la région",
+      "city": "Ville",
+      "cityPlaceholder": "Entrez la ville",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Entrez le téléphone",
+      "condition": "État",
+      "selectCondition": "Sélectionnez l'état",
+      "conditions": {
+        "new": "Neuf",
+        "used": "Occasion"
+      },
+      "negotiable": "Le prix est-il négociable ?",
+      "selectOption": "Sélectionner",
+      "yes": "Oui",
+      "no": "Non",
+      "manufacturer": "Fabricant",
+      "model": "Modèle",
+      "year": "Année",
+      "mileage": "Kilométrage",
+      "fuelType": "Type de carburant",
+      "transmission": "Transmission",
+      "driveType": "Type de traction",
+      "engineSize": "Taille du moteur",
+      "color": "Couleur",
+      "bodyType": "Type de carrosserie",
+      "engineCapacity": "Cylindrée (cc)",
+      "bikeType": "Type de moto",
+      "partCategory": "Catégorie de pièce",
+      "compatibility": "Compatibilité (ex. Toyota Corolla 2010-2015)"
+    },
+    "buttons": {
+      "continue": "Continuer",
+      "creating": "Création en cours...",
+      "createAccount": "Créer un compte",
+      "verifying": "Vérification en cours...",
+      "verifyContinue": "Vérifier et continuer",
+      "signingIn": "Connexion en cours...",
+      "signIn": "Se connecter",
+      "waitingCredentials": "En attente des identifiants...",
+      "createListing": "Créer l'annonce",
+      "uploading": "Téléchargement en cours...",
+      "uploadImages": "Télécharger les images"
+    },
+    "signup": {
+      "fullName": "Nom complet",
+      "email": "Email",
+      "password": "Mot de passe"
+    },
+    "otp": {
+      "description": "Entrez le code OTP envoyé à votre email",
+      "placeholder": "Code OTP"
+    },
+    "signin": {
+      "description": "Votre compte est vérifié. Veuillez vous connecter pour continuer.",
+      "email": "Email",
+      "password": "Mot de passe"
+    },
+    "imageUploader": {
+      "title": "Télécharger les images",
+      "mainImage": "Image principale",
+      "mainImagePreview": "Aperçu de l'image principale",
+      "additionalImages": "Images supplémentaires",
+      "dropMain": "Glissez et déposez votre image principale ici, ou cliquez pour sélectionner",
+      "dropAdditional": "Glissez et déposez des images supplémentaires ici, ou cliquez pour sélectionner",
+      "additionalImage": "Image supplémentaire",
+      "fileRejected": "Fichier rejeté. Veuillez télécharger des fichiers image valides (max 5 Mo chacun)."
+    },
+    "success": {
+      "title": "Annonce créée avec succès !",
+      "description": "Votre annonce a été soumise et sera mise en ligne dans environ 10 minutes après approbation. Vous pouvez maintenant la consulter ou gérer vos annonces dans votre tableau de bord.",
+      "editListing": "Modifier mon annonce",
+      "goToDashboard": "Aller au tableau de bord",
+      "createNew": "+ Créer une nouvelle annonce"
+    },
+    "alerts": {
+      "selectMainImage": "Sélectionnez une image principale"
+    },
+    "errors": {
+      "signupFailed": "Échec de l'inscription",
+      "signinFailed": "Échec de la connexion",
+      "otpVerificationFailed": "Échec de la vérification OTP",
+      "createListingFailed": "Échec de la création de l'annonce.",
+      "imageUploadFailed": "Échec du téléchargement des images",
+      "titleRequired": "Le titre est obligatoire.",
+      "titleTooShort": "Le titre doit comporter au moins 5 caractères.",
+      "descriptionRequired": "La description est obligatoire.",
+      "descriptionTooShort": "La description doit comporter au moins 20 caractères.",
+      "priceInvalid": "Veuillez entrer un prix valide supérieur à 0.",
+      "regionRequired": "La région est obligatoire.",
+      "cityRequired": "La ville est obligatoire.",
+      "phoneRequired": "Le numéro de téléphone est obligatoire.",
+      "phoneInvalid": "Veuillez entrer un numéro de téléphone valide (ex : +237 600 000 000).",
+      "fullNameRequired": "Le nom complet est obligatoire.",
+      "emailRequired": "L'e-mail est obligatoire.",
+      "emailInvalid": "Veuillez entrer une adresse e-mail valide.",
+      "passwordRequired": "Le mot de passe est obligatoire.",
+      "passwordTooShort": "Le mot de passe doit comporter au moins 8 caractères.",
+      "manufacturerRequired": "La marque est obligatoire.",
+      "modelRequired": "Le modèle est obligatoire.",
+      "yearInvalid": "Veuillez entrer une année valide (1900 - aujourd'hui).",
+      "otpInvalid": "Veuillez entrer un code à 6 chiffres valide."
+    }
+  },
+  "Terms": {
+    "title": "Conditions générales",
+    "agreement": "En utilisant <strong>237Mechanic Marketplace</strong>, vous acceptez les conditions suivantes :",
+    "listings_approved": "Toutes les annonces sont approuvées par notre équipe, mais la décision d'achat finale vous appartient.",
+    "not_responsible": "Nous ne sommes pas responsables du résultat de toute transaction entre acheteur et vendeur.",
+    "accurate_information": "Les utilisateurs doivent fournir des informations exactes et véridiques lors de la création d'annonces.",
+    "fraudulent_activity": "Toute activité frauduleuse ou trompeuse entraînera la suspension du compte.",
+    "right_to_update": "Nous nous réservons le droit de modifier ces conditions à tout moment."
+  },
+  "Support": {
+    "title": "Support",
+    "description": "Besoin d'aide ? Notre équipe support est là pour vous. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais."
+  },
+  "CarsByRegion": {
+    "title": "Trouvez des voitures à vendre au Cameroun par région",
+    "view_cars": "Voir les voitures à {region}",
+    "regions": {
+      "Adamawa": "Adamaoua",
+      "Centre": "Centre",
+      "East": "Est",
+      "Far North": "Extrême-Nord",
+      "Littoral": "Littoral",
+      "North": "Nord",
+      "North West": "Nord-Ouest",
+      "South": "Sud",
+      "South West": "Sud-Ouest",
+      "West": "Ouest"
+    }
+  },
+  "CarsByCity": {
+    "title": "Trouvez des voitures à vendre au Cameroun par ville",
+    "viewCars": "Voir les voitures à {city}"
+  },
+  "ManufacturerCarsForSale": {
+    "filters": {
+      "title": "Filtrer les voitures {manufacturer}",
+      "defaultTitle": "Filtrer les voitures",
+      "keyword": "Rechercher un mot-clé...",
+      "city": "Ville",
+      "region": "Région",
+      "condition": "État",
+      "conditions": {
+        "new": "Neuf",
+        "used": "Occasion"
+      },
+      "minPrice": "Prix min",
+      "maxPrice": "Prix max",
+      "year": "Année",
+      "fuelType": "Type de carburant",
+      "fuelTypes": {
+        "petrol": "Essence",
+        "diesel": "Diesel",
+        "hybrid": "Hybride",
+        "electric": "Électrique"
+      },
+      "transmission": "Transmission",
+      "transmissions": {
+        "automatic": "Automatique",
+        "manual": "Manuelle"
+      }
+    },
+    "listings": {
+      "title": "Voitures {manufacturer} à vendre au Cameroun",
+      "defaultTitle": "Voitures à vendre au Cameroun",
+      "loading": "Chargement des annonces...",
+      "noResults": "Aucune voiture {manufacturer} trouvée.",
+      "noResultsDefault": "Aucune voiture trouvée.",
+      "viewDetails": "Voir les détails"
+    }
+  },
+  "CarsForSaleConditionPage": {
+    "filters": {
+      "title": "Filtres",
+      "searchPlaceholder": "Rechercher...",
+      "allManufacturers": "Tous les fabricants",
+      "allModels": "Tous les modèles",
+      "allRegions": "Toutes les régions",
+      "allCities": "Toutes les villes",
+      "featuredAll": "Mis en vedette & Non mis en vedette",
+      "featuredOnly": "Mis en vedette uniquement",
+      "nonFeaturedOnly": "Non mis en vedette uniquement"
+    },
+    "sort": {
+      "newestFirst": "Les plus récents en premier",
+      "oldestFirst": "Les plus anciens en premier",
+      "priceLowHigh": "Prix : Croissant",
+      "priceHighLow": "Prix : Décroissant"
+    },
+    "listings": {
+      "title": "Voitures {condition} à vendre",
+      "defaultTitle": "Voitures à vendre",
+      "loading": "Chargement des voitures...",
+      "noResults": "Aucune voiture {condition} trouvée.",
+      "noResultsDefault": "Aucune voiture trouvée.",
+      "priceOnRequest": "Prix sur demande",
+      "viewDetails": "Voir les détails"
+    }
+  },
+  "ModelCarsForSale": {
+    "filters": {
+      "title": "Options de filtrage",
+      "keyword": "Rechercher un mot-clé",
+      "anyCondition": "Tout état",
+      "conditions": {
+        "new": "Neuf",
+        "used": "Occasion"
+      },
+      "minPrice": "Prix min",
+      "maxPrice": "Prix max",
+      "year": "Année",
+      "fuelType": "Type de carburant",
+      "fuelTypes": {
+        "petrol": "Essence",
+        "diesel": "Diesel",
+        "hybrid": "Hybride",
+        "electric": "Électrique"
+      },
+      "transmission": "Transmission",
+      "transmissions": {
+        "manual": "Manuelle",
+        "automatic": "Automatique"
+      }
+    },
+    "listings": {
+      "title": "Voitures {model} à vendre au Cameroun",
+      "defaultTitle": "Voitures à vendre au Cameroun",
+      "loading": "Chargement des annonces...",
+      "noResults": "Aucune voiture trouvée pour le modèle {model}.",
+      "noResultsDefault": "Aucune voiture trouvée pour ce modèle."
+    }
+  },
+    "SignIn": {
+    "title": "Connectez-vous à votre compte",
+    "subtitle": "Accès sécurisé à votre compte marketplace 237Mechanic",
+    "emailLabel": "Adresse e-mail",
+    "passwordLabel": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "signInButton": "Se connecter",
+    "signingIn": "Connexion en cours...",
+    "signInFailed": "Échec de la connexion",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "createAccount": "Créer un compte"
+  },
+  "SignUp": {
+    "title": "Créez votre compte",
+    "subtitle": "Rejoignez 237Mechanic Marketplace",
+    "fullNameLabel": "Nom complet",
+    "emailLabel": "Adresse e-mail",
+    "passwordLabel": "Mot de passe",
+    "createAccountButton": "Créer un compte",
+    "creatingAccount": "Création du compte...",
+    "signUpFailed": "Échec de l'inscription",
+    "verifyEmailTitle": "Vérifiez votre e-mail",
+    "verifyEmailSubtitle": "Nous avons envoyé un code de vérification à votre adresse e-mail",
+    "verificationCodeLabel": "Code de vérification",
+    "verificationCodePlaceholder": "Entrez le code à 6 chiffres",
+    "verifyAndContinue": "Vérifier et continuer",
+    "verifying": "Vérification en cours...",
+    "confirmationFailed": "Échec de la confirmation",
+    "noCodeReceived": "Vous n'avez pas reçu le code ?",
+    "resendVerificationCode": "Renvoyer le code de vérification",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter"
+  },
+  "ForgotPassword": {
+    "title": "Réinitialisez votre mot de passe",
+    "subtitle": "Accès sécurisé à 237Mechanic Marketplace",
+    "emailLabel": "Adresse e-mail",
+    "sendResetCode": "Envoyer le code de réinitialisation",
+    "sendingCode": "Envoi du code...",
+    "codeSentSuccess": "Un code de réinitialisation a été envoyé à votre e-mail.",
+    "sendCodeFailed": "Échec de l'envoi du code de réinitialisation",
+    "verificationCodeLabel": "Code de vérification",
+    "verificationCodePlaceholder": "Entrez le code reçu par e-mail",
+    "newPasswordLabel": "Nouveau mot de passe",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "resettingPassword": "Réinitialisation du mot de passe...",
+    "passwordResetSuccess": "Mot de passe réinitialisé avec succès ! Redirection vers la connexion...",
+    "resetPasswordFailed": "Échec de la réinitialisation du mot de passe",
+    "rememberPassword": "Vous vous souvenez de votre mot de passe ?",
+    "signIn": "Se connecter"
+  },
+  "Dashboard": {
+    "dashboard": "Tableau de bord",
+    "createListing": "Créer une annonce",
+    "title": "Tableau de bord de mon compte",
+    "visitMarketplace": "Visiter le marketplace",
+    "myListings": "Mes annonces",
+    "messages": "Messages",
+    "settings": "Paramètres",
+    "createNewListing": "+ Créer une nouvelle annonce",
+    "loadingListings": "Chargement de vos annonces...",
+    "noListings": "Vous n'avez pas encore d'annonces.",
+    "status": "Statut",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "deleteConfirmation": "Supprimer cette annonce et ses images ? Cette action est irréversible.",
+    "unableToIdentifyUser": "Impossible d'identifier l'utilisateur actuel",
+    "workerDeleteFailed": "Échec de la suppression par le worker ({status})",
+    "deleteSuccess": "Annonce supprimée avec succès.",
+    "deleteFailed": "Échec de la suppression de l'annonce : {message}",
+  "Common": {
+    "unknownError": "Erreur inconnue"
+  }
+  },
+  "CreateListing": {
+    "createListing": "Créer une annonce",
+    "uploadImages": "Télécharger des images",
+    "title": "Titre",
+    "description": "Description",
+    "selectCategory": "Sélectionner une catégorie",
+    "condition": "État",
+    "location": "Localisation",
+    "region": "Région",
+    "price": "Prix",
+    "contactPhone": "Téléphone de contact",
+    "negotiable": "Négociable",
+    "new": "neuf",
+    "used": "occasion",
+    "continueToUpload": "Continuer vers le téléchargement d'images",
+    "creating": "Création...",
+    "requiredFields": "Veuillez remplir tous les champs obligatoires.",
+    "createFailed": "Échec de la création de l'annonce : {message}",
+    "selectMainImage": "Veuillez sélectionner une image principale.",
+    "listingCreated": "Annonce créée avec succès !",
+    "uploadFailed": "Échec du téléchargement des images ou de la mise à jour de l'annonce.",
+    "manufacturer": "Fabricant",
+    "model": "Modèle",
+    "year": "Année",
+    "mileage": "Kilométrage",
+    "fuelType": "Type de carburant",
+    "transmission": "Transmission",
+    "driveType": "Type de traction",
+    "engineSize": "Taille du moteur",
+    "color": "Couleur",
+    "bodyType": "Type de carrosserie",
+    "engineCapacity": "Cylindrée",
+    "bikeType": "Type de moto",
+    "partName": "Nom de la pièce",
+    "compatibleVehicles": "Véhicules compatibles",
+    "brand": "Marque",
+    "origin": "Origine"
+  }
+  ,
+  "EditListing": {
+    "title": "Modifier l'annonce",
+    "editInstructions": "Vous pouvez modifier les détails de base ci-dessous. Si vous devez changer les images, les fonctionnalités ou les spécifications, veuillez supprimer l'annonce et en créer une nouvelle.",
+    "titlePlaceholder": "Titre",
+    "descriptionPlaceholder": "Description",
+    "pricePlaceholder": "Prix",
+    "currencyPlaceholder": "Devise (ex: USD)",
+    "conditionPlaceholder": "État",
+    "contactPhonePlaceholder": "Téléphone de contact",
+    "locationPlaceholder": "Localisation",
+    "regionPlaceholder": "Région",
+    "saving": "Enregistrement...",
+    "saveChanges": "Enregistrer les modifications",
+    "loading": "Chargement de l'annonce...",
+    "listingNotFound": "Annonce non trouvée.",
+    "permissionDenied": "Vous n'avez pas la permission de modifier cette annonce.",
+    "updateSuccess": "Annonce mise à jour avec succès.",
+    "updateFailed": "Échec de la mise à jour de l'annonce."
+  },
+  "Messages": {
+    "loading": "Chargement des messages...",
+    "noMessages": "Vous n'avez pas encore de messages.",
+    "regarding": "Concernant :",
+    "markAsRead": "Marquer comme lu",
+    "marking": "Marquage...",
+    "markedAsRead": "Marqué comme lu le"
+  },
+  "AccountSettings": {
+    "title": "Paramètres du compte",
+    "displayName": "Nom d'affichage",
+    "phoneNumber": "Numéro de téléphone",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "saveProfile": "Enregistrer le profil",
+    "saving": "Enregistrement...",
+    "changePassword": "Changer le mot de passe",
+    "changing": "Changement...",
+    "profileUpdateSuccess": "Profil mis à jour avec succès.",
+    "profileUpdateError": "Erreur lors de la mise à jour du profil.",
+    "passwordChangeSuccess": "Mot de passe changé avec succès.",
+    "passwordChangeError": "Erreur lors du changement de mot de passe."
+  },
+   "AdminDashboard": {
+    "loading": "Chargement...",
+    "authError": "Erreur d'authentification",
+    "accessDenied": "Accès refusé",
+    "adminPanel": "Panneau d'administration",
+    "manageCategories": "Gérer les catégories",
+    "reviewListings": "Réviser les annonces",
+    "pendingListings": "Annonces en attente",
+    "price": "Prix",
+    "region": "Région",
+    "description": "Description",
+    "contact": "Contact",
+    "reasonPlaceholder": "Entrez la raison d'approbation/rejet",
+    "provideReason": "Veuillez fournir une raison pour l'approbation/rejet.",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "delete": "Supprimer",
+    "confirmDeleteTitle": "Confirmer la suppression de l'annonce ?",
+    "confirmDeleteMessage": "Cela supprimera également les images de l'annonce de Cloudflare.",
+    "cancel": "Annuler"
+  },
+   "SignOut": {
+    "signOut": "Se déconnecter"
+  },
+  "CarsForSale": {
+    "title": "Voitures à vendre",
+    "manufacturer": "Fabricant",
+    "model": "Modèle",
+    "region": "Région",
+    "city": "Ville",
+    "condition": "État",
+    "featured": "Mis en avant",
+    "year": "Année",
+    "mileage": "Kilométrage",
+    "allManufacturers": "Tous les fabricants",
+    "allModels": "Tous les modèles",
+    "allRegions": "Toutes les régions",
+    "allCities": "Toutes les villes",
+    "allConditions": "Tous les états",
+    "featuredAll": "Mis en avant & Non mis en avant",
+    "featuredOnly": "Mis en avant uniquement",
+    "nonFeaturedOnly": "Non mis en avant uniquement",
+    "new": "Neuf",
+    "used": "Occasion",
+    "loading": "Chargement des annonces...",
+    "noListings": "Aucune annonce trouvée",
+    "priceOnRequest": "Prix sur demande",
+    "contactSeller": "Contacter le vendeur"
+  },
+  "Common": {
+    "manufacturer": "Fabricant",
+    "model": "Modèle",
+    "year": "Année",
+    "mileage": "Kilométrage",
+    "region": "Région",
+    "city": "Ville",
+    "condition": "État",
+    "featured": "Mis en avant",
+    "unknownError": "Erreur inconnue"
+  }
+
+}

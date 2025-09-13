@@ -1,0 +1,53 @@
+{
+  "name": "next-app1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-amplify/ui-react": "^6.11.2",
+    "@chakra-ui/react": "^3.22.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@heroicons/react": "^2.2.0",
+    "@sanity/client": "^6.28.2",
+    "aws-amplify": "^6.15.4",
+    "aws4fetch": "^1.0.20",
+    "axios": "^1.10.0",
+    "browser-image-compression": "^2.0.2",
+    "crypto-js": "^4.2.0",
+    "file-saver": "^2.0.5",
+    "firebase": "^12.1.0",
+    "framer-motion": "^12.23.5",
+    "graphql-tag": "^2.12.6",
+    "i18next": "^25.3.2",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
+    "lucide-react": "^0.475.0",
+    "module-alias": "^2.2.3",
+    "next": "^14.1.0",
+    "next-intl": "^4.3.5",
+    "next-seo": "^6.8.0",
+    "node-fetch": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8",
+    "react-helmet-async": "^2.0.5",
+    "react-i18next": "^15.6.1",
+    "react-icons": "^5.5.0",
+    "sitemap": "^8.0.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17"
+  }
+}

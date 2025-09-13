@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-237mechanicmarket-dev-4870e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::980921748213:role/amplify-237mechanicmarket-dev-4870e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::980921748213:role/amplify-237mechanicmarket-dev-4870e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-237mechanicmarket-dev-4870e-deployment",
+      "UnauthRoleName": "amplify-237mechanicmarket-dev-4870e-unauthRole",
+      "StackName": "amplify-237mechanicmarket-dev-4870e",
+      "StackId": "arn:aws:cloudformation:us-east-1:980921748213:stack/amplify-237mechanicmarket-dev-4870e/9e634f80-6e46-11f0-a066-0affdc2eb3e1",
+      "AmplifyAppId": "d10lnzqg3rtnkr"
+    },
+    "categories": {
+      "auth": {
+        "237mechanicmarket742f03c1": {}
+      },
+      "api": {
+        "237mechanicmarket": {}
+      }
+    }
+  }
+}

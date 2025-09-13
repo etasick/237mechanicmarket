@@ -1,0 +1,734 @@
+{
+  "header": {
+    "logo": "237Mechanic Marketplace",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "sell": "Sell a Vehicle or Spare Part",
+    "dashboard": "Dashboard",
+    "listings": "My Listings",
+    "settings": "Settings",
+    "logout": "Log Out",
+    "account": "My Account"
+  },
+  "home": {
+    "seoTitle": "237Mechanic Marketplace : Buy & Sell cars, motorcycles, parts",
+    "heroTitle": "Find your next ride or part in Cameroon",
+    "heroSubtitle": "Browse approved listings from trusted sellers nationwide.",
+    "searchPlaceholder": "Search by title, brand, model, keyword…",
+    "searchBtn": "Search",
+    "popularBrands": "Popular Brands",
+    "listings": "Listings",
+    "loading": "Loading marketplace…",
+    "noListings": "No listings match your filters.",
+    "loadMore": "Load more",
+    "loadingMore": "Loading…",
+    "priceOnRequest": "Price on request",
+    "clear": "Clear"
+  },
+  "HomePage": {
+    "title": "237Mechanic Marketplace • Buy & Sell cars, motorcycles, Spare Parts & More in Cameroon",
+    "description": "Buy and sell cars, motorcycles, and spare parts in Cameroon with confidence. Browse approved listings from trusted sellers nationwide on 237Mechanic Marketplace.",
+    "hero": {
+      "title": "Find your next ride or part in Cameroon",
+      "subtitle": "Browse approved listings from trusted sellers nationwide.",
+      "searchPlaceholder": "Search by title, brand, model, keyword…",
+      "searchButton": "Search",
+      "allCategories": "All"
+    },
+    "brands": {
+      "title": "Popular Brands",
+      "clear": "Clear brand",
+      "items": {
+        "toyota": "Toyota",
+        "mercedes": "Mercedes",
+        "nissan": "Nissan",
+        "hyundai": "Hyundai",
+        "kia": "Kia",
+        "honda": "Honda",
+        "bmw": "BMW",
+        "peugeot": "Peugeot",
+        "renault": "Renault",
+        "volkswagen": "Volkswagen",
+        "lexus": "Lexus",
+        "mazda": "Mazda"
+      }
+    },
+    "regions": {
+      "title": "Browse by Region",
+      "clear": "Clear",
+      "items": {
+        "adamawa": "Adamawa",
+        "centre": "Centre",
+        "east": "East",
+        "farnorth": "Far North",
+        "littoral": "Littoral",
+        "north": "North",
+        "northwest": "North West",
+        "south": "South",
+        "southwest": "South West",
+        "west": "West"
+      }
+
+    },
+    "cities": {
+      "title": "Popular Cities",
+      "clear": "Clear",
+      "items": {
+        "douala": "Douala",
+        "yaounde": "Yaoundé",
+        "buea": "Buea",
+        "bamenda": "Bamenda",
+        "garoua": "Garoua",
+        "maroua": "Maroua",
+        "bafoussam": "Bafoussam",
+        "limbe": "Limbe",
+        "kumba": "Kumba",
+        "ebolowa": "Ebolowa"
+      }
+
+    },
+     "categories": {
+      "cars": "Cars",
+      "motorcycles": "Motorcycles",
+      "spare-parts": "Spare Parts"
+    },
+    "filters": {
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "clearAll": "Clear all",
+      "postListing": "+ Post Listing"
+    },
+    "listings": {
+      "title": "Listings",
+      "loading": "Loading marketplace…",
+      "noResults": "No listings match your filters.",
+      "loadingMore": "Loading…",
+      "loadMore": "Load more",
+      "viewDetails": "View details",
+      "specs": {
+        "brand": "Brand",
+        "model": "Model",
+        "year": "Year",
+        "fuel": "Fuel",
+        "transmission": "Trans",
+        "condition": "Condition"
+      }
+    }
+  },
+
+  "Footer": {
+    "marketplace": {
+      "title": "237Mechanic Marketplace",
+      "postListing": "Post Listing",
+      "carsForSale": "Cars for Sale",
+      "motorcyclesForSale": "Motorcycles for Sale",
+      "sparePartsForSale": "Spare parts for Sale",
+      "usedCars": "Used Cars",
+      "newCars": "New Cars",
+      "sellVehicle": "Sell Vehicle",
+      "sellMyCar": "Sell My Car",
+      "sellMotorcycle": "Sell Motorcycle",
+      "sellSparePart": "Sell Spare Part",
+      "contactUs": "Contact Us",
+      "terms": "Terms & Conditions",
+      "aboutUs": "About Us"
+    },
+    "manufacturers": {
+      "title": "Manufacturers"
+    },
+    "models": {
+      "title": "Popular Models"
+    },
+    "others": {
+      "title": "Others",
+      "allRegions": "All Regions",
+      "allCities": "All Cities",
+      "featuredListings": "Featured Listings",
+      "faqs": "FAQs",
+      "support": "Support"
+    },
+    "copyright": "237Mechanic Marketplace. All rights reserved."
+  },
+  "SubscribeForm": {
+    "title": "Stay Updated",
+    "description": "Get the latest deals and listings in your inbox.",
+    "placeholder": "Enter your email",
+    "buttonText": "Subscribe",
+    "successMessage": "Thanks for subscribing!",
+    "errorMessage": "Error subscribing."
+  },
+  "ContactForm": {
+    "title": "Contact Us",
+    "description": "We'd love to hear from you. Fill out the form and we'll get back to you soon.",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "sendButton": "Send Message",
+    "successMessage": " Message sent!",
+    "errorMessage": "Error sending message."
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "approval": {
+      "question": "How are listings approved?",
+      "answer": "All listings go through a review by our support team before being published on the marketplace."
+    },
+    "responsibility": {
+      "question": "Is 237Mechanic responsible for my purchase?",
+      "answer": "No. While we work hard to ensure listings are genuine, the final purchase decision and responsibility lie with you."
+    },
+    "contact": {
+      "question": "How do I contact support?",
+      "answer": "You can reach out via our support page or by using the contact form."
+    }
+  },
+   "About": {
+    "title": "About Us",
+    "paragraph1": "At ",
+    "marketplaceName": "237Mechanic Marketplace",
+    "paragraph2": ", we're passionate about making car buying and selling simple, safe, and transparent. Our platform brings together dealerships and individuals to showcase quality automotive listings that are reviewed and approved by our support team.",
+    "paragraph3": "Our mission is to empower you with the tools, information, and trusted listings you need to make the right decision for your next vehicle."
+  },
+  "ListingDetails": {
+    "loading": "Loading listing...",
+    "galleryImageAlt": "Gallery image",
+    "tabs": {
+      "description": "Description",
+      "specifications": "Specifications",
+      "features": "Features"
+    },
+    "sections": {
+      "description": "Description",
+      "specifications": "Specifications",
+      "features": "Features"
+    },
+    "contact": {
+      "title": "Contact Seller",
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "messagePlaceholder": "Write your message...",
+      "sending": "Sending...",
+      "sendButton": "Send Message"
+    },
+    "messageSuccess": "Your message has been sent to the seller!",
+    "messageError": "Failed to send your message. Please try again.",
+    "related": {
+      "title": "Related Listings"
+    },
+    "specLabels": {
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "year": "Year",
+      "mileage": "Mileage",
+      "fuelType": "Fuel Type",
+      "transmission": "Transmission",
+      "driveType": "Drive Type",
+      "engineSize": "Engine Size",
+      "color": "Color",
+      "bodyType": "Body Type",
+      "engineCapacity": "Engine Capacity",
+      "bikeType": "Bike Type",
+      "partName": "Part Name",
+      "compatibleVehicles": "Compatible Vehicles",
+      "brand": "Brand",
+      "origin": "Origin"
+    }
+  },
+  "CreateListingPage": {
+    "title": "Post a Listing",
+    "description": "Choose the type of listing you want to post. Whether it's a car, motorcycle, or spare part — we'll guide you through the right form.",
+    "cards": {
+      "sellCar": {
+        "title": "Sell a Car",
+        "description": "List your car for sale in minutes."
+      },
+      "sellMotorcycle": {
+        "title": "Sell a Motorcycle",
+        "description": "Find the right buyer for your bike."
+      },
+      "sellSparePart": {
+        "title": "Sell a Spare Part",
+        "description": "Reach buyers looking for auto parts."
+      }
+    }
+  },"SellVehiclePage": {
+    "vehicleTypes": {
+      "car": "Car",
+      "motorcycle": "Motorcycle",
+      "sparePart": "Spare Part"
+    },
+    "steps": {
+      "listingInfo": {
+        "title": "Sell Your {vehicleType}"
+      },
+      "signup": {
+        "title": "Sign Up to Continue"
+      },
+      "finalize": {
+        "title": "Finalize Listing"
+      },
+      "uploadImages": {
+        "title": "Upload Images"
+      }
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "Enter title",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter description",
+      "price": "Price",
+      "pricePlaceholder": "Enter price",
+      "region": "Region",
+      "regionPlaceholder": "Enter region",
+      "city": "City",
+      "cityPlaceholder": "Enter city",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter phone",
+      "condition": "Condition",
+      "selectCondition": "Select condition",
+      "conditions": {
+        "new": "New",
+        "used": "Used"
+      },
+      "negotiable": "Is price negotiable?",
+      "selectOption": "Select",
+      "yes": "Yes",
+      "no": "No",
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "year": "Year",
+      "mileage": "Mileage",
+      "fuelType": "Fuel Type",
+      "transmission": "Transmission",
+      "driveType": "Drive Type",
+      "engineSize": "Engine Size",
+      "color": "Color",
+      "bodyType": "Body Type",
+      "engineCapacity": "Engine Capacity (cc)",
+      "bikeType": "Motorcycle Type",
+      "partCategory": "Part Category",
+      "compatibility": "Compatibility (e.g. Toyota Corolla 2010-2015)"
+    },
+    "buttons": {
+      "continue": "Continue",
+      "creating": "Creating...",
+      "createAccount": "Create Account",
+      "verifying": "Verifying...",
+      "verifyContinue": "Verify & Continue",
+      "signingIn": "Signing in...",
+      "signIn": "Sign In",
+      "waitingCredentials": "Waiting for credentials...",
+      "createListing": "Create Listing",
+      "uploading": "Uploading...",
+      "uploadImages": "Upload Images"
+    },
+    "signup": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "password": "Password"
+    },
+    "otp": {
+      "description": "Enter the OTP sent to your email",
+      "placeholder": "OTP Code"
+    },
+    "signin": {
+      "description": "Your account is verified. Please sign in to continue.",
+      "email": "Email",
+      "password": "Password"
+    },
+    "imageUploader": {
+      "title": "Upload Images",
+      "mainImage": "Main Image",
+      "mainImagePreview": "Main image preview",
+      "additionalImages": "Additional Images",
+      "dropMain": "Drag & drop your main image here, or click to select",
+      "dropAdditional": "Drag & drop additional images here, or click to select",
+      "additionalImage": "Additional image",
+      "fileRejected": "File rejected. Please upload valid image files (max 5MB each)."
+    },
+    "success": {
+      "title": "Listing Created Successfully!",
+      "description": "Your listing has been submitted it will go public in about 10 minutes after approval. You can now view it or manage your listings in your dashboard.",
+      "editListing": "Edit My Listing",
+      "goToDashboard": "Go to Dashboard",
+      "createNew": "+ Create New Listing"
+    },
+    "alerts": {
+      "selectMainImage": "Select a main image"
+    },
+    "errors": {
+      "signupFailed": "Signup failed",
+      "signinFailed": "Signin failed",
+      "otpVerificationFailed": "OTP verification failed",
+      "createListingFailed": "Failed to create listing.",
+      "imageUploadFailed": "Failed to upload images",
+      "titleRequired": "Title is required.",
+      "titleTooShort": "Title must be at least 5 characters.",
+      "descriptionRequired": "Description is required.",
+      "descriptionTooShort": "Description must be at least 20 characters.",
+      "priceInvalid": "Please enter a valid price greater than 0.",
+      "regionRequired": "Region is required.",
+      "cityRequired": "City is required.",
+      "phoneRequired": "Phone number is required.",
+      "phoneInvalid": "Please enter a valid phone number (e.g. +237 600 000 000).",
+      "fullNameRequired": "Full name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "passwordRequired": "Password is required.",
+      "passwordTooShort": "Password must be at least 8 characters.",
+      "manufacturerRequired": "Manufacturer is required.",
+      "modelRequired": "Model is required.",
+      "yearInvalid": "Please enter a valid year (1900 - present).",
+      "otpInvalid": "Please enter a valid 6-digit code."
+    }
+  },
+  "Terms": {
+    "title": "Terms & Conditions",
+    "agreement": "By using <strong>237Mechanic Marketplace</strong>, you agree to the following terms:",
+    "listings_approved": "All listings are approved by our team but final purchase decisions rest with you.",
+    "not_responsible": "We are not responsible for the outcome of any transaction between buyer and seller.",
+    "accurate_information": "Users must provide accurate and truthful information when creating listings.",
+    "fraudulent_activity": "Fraudulent or misleading activity will result in account suspension.",
+    "right_to_update": "We reserve the right to update these terms at any time."
+  },
+  "Support": {
+    "title": "Support",
+    "description": "Need help? Our support team is here for you. Fill out the form below and we’ll respond as soon as possible."
+  },
+  "CarsByRegion": {
+    "title": "Find Cars for Sale in Cameroon by Region",
+    "view_cars": "View cars in {region}",
+    "regions": {
+      "Adamawa": "Adamawa",
+      "Centre": "Centre",
+      "East": "East",
+      "Far North": "Far North",
+      "Littoral": "Littoral",
+      "North": "North",
+      "North West": "North West",
+      "South": "South",
+      "South West": "South West",
+      "West": "West"
+    }
+  },
+   "CarsByCity": {
+    "title": "Find Cars for Sale in Cameroon by City",
+    "viewCars": "View cars in {city}"
+  },
+  "ManufacturerCarsForSale": {
+    "filters": {
+      "title": "Filter {manufacturer} Cars",
+      "defaultTitle": "Filter Cars",
+      "keyword": "Search keyword...",
+      "city": "City",
+      "region": "Region",
+      "condition": "Condition",
+      "conditions": {
+        "new": "New",
+        "used": "Used"
+      },
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "year": "Year",
+      "fuelType": "Fuel Type",
+      "fuelTypes": {
+        "petrol": "Petrol",
+        "diesel": "Diesel",
+        "hybrid": "Hybrid",
+        "electric": "Electric"
+      },
+      "transmission": "Transmission",
+      "transmissions": {
+        "automatic": "Automatic",
+        "manual": "Manual"
+      }
+    },
+    "listings": {
+      "title": "{manufacturer} cars for sale in Cameroon",
+      "defaultTitle": "Cars for sale in Cameroon",
+      "loading": "Loading listings...",
+      "noResults": "No {manufacturer} cars found.",
+      "noResultsDefault": "No cars found.",
+      "viewDetails": "View Details"
+    }
+  },
+  "CarsForSaleConditionPage": {
+    "filters": {
+      "title": "Filters",
+      "searchPlaceholder": "Search...",
+      "allManufacturers": "All Manufacturers",
+      "allModels": "All Models",
+      "allRegions": "All Regions",
+      "allCities": "All Cities",
+      "featuredAll": "Featured & Non-Featured",
+      "featuredOnly": "Featured Only",
+      "nonFeaturedOnly": "Non-Featured Only"
+    },
+    "sort": {
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First",
+      "priceLowHigh": "Price: Low to High",
+      "priceHighLow": "Price: High to Low"
+    },
+    "listings": {
+      "title": "{condition} cars for sale",
+      "defaultTitle": "Cars for sale",
+      "loading": "Loading cars...",
+      "noResults": "No {condition} cars found.",
+      "noResultsDefault": "No cars found.",
+      "priceOnRequest": "Price on request",
+      "viewDetails": "View Details"
+    }
+  },
+  "ModelCarsForSale": {
+    "filters": {
+      "title": "Filter Options",
+      "keyword": "Search keyword",
+      "anyCondition": "Any Condition",
+      "conditions": {
+        "new": "New",
+        "used": "Used"
+      },
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "year": "Year",
+      "fuelType": "Fuel Type",
+      "fuelTypes": {
+        "petrol": "Petrol",
+        "diesel": "Diesel",
+        "hybrid": "Hybrid",
+        "electric": "Electric"
+      },
+      "transmission": "Transmission",
+      "transmissions": {
+        "manual": "Manual",
+        "automatic": "Automatic"
+      }
+    },
+    "listings": {
+      "title": "{model} cars for sale in Cameroon",
+      "defaultTitle": "Cars for sale in Cameroon",
+      "loading": "Loading listings...",
+      "noResults": "No cars found for {model} model.",
+      "noResultsDefault": "No cars found for this model."
+    }
+  },
+  "SignIn": {
+    "title": "Sign in to your account",
+    "subtitle": "Secure access to your 237Mechanic marketplace account",
+    "emailLabel": "Email address",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot password?",
+    "signInButton": "Sign in",
+    "signingIn": "Signing in...",
+    "signInFailed": "Sign in failed",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create account"
+  },
+  "SignUp": {
+    "title": "Create your account",
+    "subtitle": "Join 237Mechanic Marketplace",
+    "fullNameLabel": "Full Name",
+    "emailLabel": "Email address",
+    "passwordLabel": "Password",
+    "createAccountButton": "Create Account",
+    "creatingAccount": "Creating Account...",
+    "signUpFailed": "Signup failed",
+    "verifyEmailTitle": "Verify your email",
+    "verifyEmailSubtitle": "We've sent a verification code to your email address",
+    "verificationCodeLabel": "Verification Code",
+    "verificationCodePlaceholder": "Enter 6-digit code",
+    "verifyAndContinue": "Verify & Continue",
+    "verifying": "Verifying...",
+    "confirmationFailed": "Confirmation failed",
+    "noCodeReceived": "Didn't receive the code?",
+    "resendVerificationCode": "Resend Verification Code",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign In"
+  },
+  "ForgotPassword": {
+    "title": "Reset your password",
+    "subtitle": "Secure access to 237Mechanic Marketplace",
+    "emailLabel": "Email address",
+    "sendResetCode": "Send Reset Code",
+    "sendingCode": "Sending Code...",
+    "codeSentSuccess": "A reset code has been sent to your email.",
+    "sendCodeFailed": "Failed to send reset code",
+    "verificationCodeLabel": "Verification Code",
+    "verificationCodePlaceholder": "Enter code from email",
+    "newPasswordLabel": "New Password",
+    "resetPassword": "Reset Password",
+    "resettingPassword": "Resetting Password...",
+    "passwordResetSuccess": "Password reset successful! Redirecting to sign in...",
+    "resetPasswordFailed": "Failed to reset password",
+    "rememberPassword": "Remember your password?",
+    "signIn": "Sign In"
+  },
+  "Dashboard": {
+    "dashboard": "Dashboard",
+    "createListing": "Create Listing",
+    "settings": "Settings",
+    "visitMarketplace": "Visit Marketplace",
+    "title": "My Account Dashboard",
+    "myListings": "My Listings",
+    "messages": "Messages",
+    "createNewListing": "+ Create New Listing",
+    "loadingListings": "Loading your listings...",
+    "noListings": "You have no listings yet.",
+    "status": "Status",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteConfirmation": "Delete this listing and its images? This cannot be undone.",
+    "unableToIdentifyUser": "Unable to identify current user",
+    "workerDeleteFailed": "Worker delete failed ({status})",
+    "deleteSuccess": "Listing deleted successfully.",
+    "deleteFailed": "Failed to delete listing: {message}"
+  ,
+  "Common": {
+    "unknownError": "Unknown error"
+  }
+  },
+  "CreateListing": {
+    "createListing": "Create Listing",
+    "uploadImages": "Upload Images",
+    "title": "Title",
+    "description": "Description",
+    "selectCategory": "Select Category",
+    "condition": "Condition",
+    "location": "Location",
+    "region": "Region",
+    "price": "Price",
+    "contactPhone": "Contact Phone",
+    "negotiable": "Negotiable",
+    "new": "new",
+    "used": "used",
+    "continueToUpload": "Continue to Image Upload",
+    "creating": "Creating...",
+    "requiredFields": "Please fill in all required fields.",
+    "createFailed": "Failed to create listing: {message}",
+    "selectMainImage": "Please select a main image.",
+    "listingCreated": "Listing created successfully!",
+    "uploadFailed": "Failed to upload images or update listing.",
+    "manufacturer": "Manufacturer",
+    "model": "Model",
+    "year": "Year",
+    "mileage": "Mileage",
+    "fuelType": "Fuel Type",
+    "transmission": "Transmission",
+    "driveType": "Drive Type",
+    "engineSize": "Engine Size",
+    "color": "Color",
+    "bodyType": "Body Type",
+    "engineCapacity": "Engine Capacity",
+    "bikeType": "Bike Type",
+    "partName": "Part Name",
+    "compatibleVehicles": "Compatible Vehicles",
+    "brand": "Brand",
+    "origin": "Origin"
+  },
+  "EditListing": {
+    "title": "Edit Listing",
+    "editInstructions": "You can edit basic details below. If you need to change images, features, or specifications, please delete the listing and create a new one.",
+    "titlePlaceholder": "Title",
+    "descriptionPlaceholder": "Description",
+    "pricePlaceholder": "Price",
+    "currencyPlaceholder": "Currency (e.g., USD)",
+    "conditionPlaceholder": "Condition",
+    "contactPhonePlaceholder": "Contact Phone",
+    "locationPlaceholder": "Location",
+    "regionPlaceholder": "Region",
+    "saving": "Saving...",
+    "saveChanges": "Save Changes",
+    "loading": "Loading listing...",
+    "listingNotFound": "Listing not found.",
+    "permissionDenied": "You do not have permission to edit this listing.",
+    "updateSuccess": "Listing updated successfully.",
+    "updateFailed": "Failed to update listing."
+  },
+  "Messages": {
+    "loading": "Loading messages...",
+    "noMessages": "You have no messages yet.",
+    "regarding": "Regarding:",
+    "markAsRead": "Mark as Read",
+    "marking": "Marking...",
+    "markedAsRead": "Marked as read on"
+  },
+  "AccountSettings": {
+    "title": "Account Settings",
+    "displayName": "Display Name",
+    "phoneNumber": "Phone Number",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "saveProfile": "Save Profile",
+    "saving": "Saving...",
+    "changePassword": "Change Password",
+    "changing": "Changing...",
+    "profileUpdateSuccess": "Profile updated successfully.",
+    "profileUpdateError": "Error updating profile.",
+    "passwordChangeSuccess": "Password changed successfully.",
+    "passwordChangeError": "Error changing password."
+  },
+  "AdminDashboard": {
+    "loading": "Loading...",
+    "authError": "Authentication error",
+    "accessDenied": "Access Denied",
+    "adminPanel": "Admin Panel",
+    "manageCategories": "Manage Categories",
+    "reviewListings": "Review Listings",
+    "pendingListings": "Pending Listings",
+    "price": "Price",
+    "region": "Region",
+    "description": "Description",
+    "contact": "Contact",
+    "reasonPlaceholder": "Enter reason for approval/rejection",
+    "provideReason": "Please provide a reason for approval/rejection.",
+    "approve": "Approve",
+    "reject": "Reject",
+    "delete": "Delete",
+    "confirmDeleteTitle": "Confirm delete listing?",
+    "confirmDeleteMessage": "This will also delete listing images from Cloudflare.",
+    "cancel": "Cancel"
+  },
+  "SignOut": {
+    "signOut": "Sign Out"
+  },
+  "CarsForSale": {
+    "title": "cars for Sale",
+    "manufacturer": "Manufacturer",
+    "model": "Model",
+    "region": "Region",
+    "city": "City",
+    "condition": "Condition",
+    "featured": "Featured",
+    "year": "Year",
+    "mileage": "Mileage",
+    "allManufacturers": "All Manufacturers",
+    "allModels": "All Models",
+    "allRegions": "All Regions",
+    "allCities": "All Cities",
+    "allConditions": "All Conditions",
+    "featuredAll": "Featured & Non-Featured",
+    "featuredOnly": "Featured Only",
+    "nonFeaturedOnly": "Non-Featured Only",
+    "new": "New",
+    "used": "Used",
+    "loading": "Loading listings...",
+    "noListings": "No listings found",
+    "priceOnRequest": "Price on request",
+    "contactSeller": "Contact Seller"
+  },
+  "Common": {
+    "manufacturer": "Manufacturer",
+    "model": "Model",
+    "year": "Year",
+    "mileage": "Mileage",
+    "region": "Region",
+    "city": "City",
+    "condition": "Condition",
+    "featured": "Featured",
+    "unknownError": "Unknown error"
+  }
+
+}
