@@ -59,53 +59,33 @@ export default function HomePage() {
   // Initial load
   // After fetching categories and listings in useEffect:
   // ✅ A helper to fetch listings with consistent filters
-const fetchListings = async ({ nextToken = null, limit = 12, categoryId }) => {
-  const { data } = await publicClient.graphql({
-    query: listListingsWithCategory,
-    variables: {
-      limit,
-      nextToken,
-      filter: {
-        status: { eq: 'APPROVED' },
-        ...(categoryId ? { categoryId: { eq: categoryId } } : {}), // 🔑 only cars
-      },
-    },
-  });
-
-  const items = (data?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
-  return { items, nextToken: data?.listListings?.nextToken ?? null };
-};
-
-// ✅ Initial load
 useEffect(() => {
   (async () => {
     setLoading(true);
     try {
-      const [{ data: cat }, listingsResult] = await Promise.all([
+      const [{ data: cat }, { data: lst }] = await Promise.all([
         publicClient.graphql({ query: listCategories }),
-        fetchListings({ limit: 12 }),
+        publicClient.graphql({
+          query: listListingsWithCategory,
+          variables: {
+            limit: 12,
+            filter: { status: { eq: 'APPROVED' } },
+          },
+        }),
       ]);
 
       const categoriesFetched = cat?.listCategories?.items ?? [];
       setCategories(categoriesFetched);
 
-      // 🔑 Default to cars category
+      // 🔑 Find the "cars" category and set it as default
       const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
       if (carsCategory) {
         setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
-
-        // Re-fetch listings scoped to cars
-        const { items, nextToken } = await fetchListings({
-          limit: 12,
-          categoryId: carsCategory.id,
-        });
-        setListings(items);
-        setNextToken(nextToken);
-      } else {
-        // Fallback: just show whatever we got
-        setListings(listingsResult.items);
-        setNextToken(listingsResult.nextToken);
       }
+
+      const items = (lst?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
+      setListings(items);
+      setNextToken(lst?.listListings?.nextToken ?? null);
     } catch (e) {
       console.error('Init load error:', e);
     } finally {
@@ -113,20 +93,24 @@ useEffect(() => {
     }
   })();
 }, []);
-
-// ✅ Load more
 const loadMore = async () => {
   if (!nextToken || loadingMore) return;
   setLoadingMore(true);
   try {
-    const { items, nextToken: newToken } = await fetchListings({
-      nextToken,
-      limit: 12,
-      categoryId: filters.categoryId, // always scoped to cars
+    const { data } = await publicClient.graphql({
+      query: listListingsWithCategory,
+      variables: {
+        limit: 12,
+        nextToken,
+        filter: {
+          status: { eq: 'APPROVED' },
+          categoryId: { eq: filters.categoryId }, // 🔑 keep it scoped to cars
+        },
+      },
     });
-
+    const items = (data?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
     setListings((prev) => [...prev, ...items]);
-    setNextToken(newToken);
+    setNextToken(data?.listListings?.nextToken ?? null);
   } catch (e) {
     console.error('Load more error:', e);
   } finally {
