@@ -2,6 +2,7 @@ export const runtime = 'experimental-edge';
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { generateClient } from "aws-amplify/api";
+import publicClient from '@/src/amplifyPublicClient';
 import { createMessage } from "@/src/graphql/mutations";
 import { Auth } from "aws-amplify"; 
 import { getListing, listListings } from "@/src/graphql/queries";
@@ -44,7 +45,7 @@ export default function ListingDetails() {
 
   const fetchListing = async () => {
     try {
-      const { data } = await client.graphql({
+      const { data } = await publicClient.graphql({
         query: getListing,
         variables: { id },
       });
@@ -60,7 +61,7 @@ export default function ListingDetails() {
   const fetchRelated = async (categoryId, excludeId) => {
     if (!categoryId) return;
     try {
-      const { data } = await client.graphql({
+      const { data } = await publicClient.graphql({
         query: listListingsWithCategory,
         variables: {
           filter: {
@@ -325,7 +326,7 @@ export default function ListingDetails() {
 
 export async function getStaticPaths() {
   try {
-    const { data } = await client.query({
+    const { data } = await publicClient.query({
       query: getListing
     });
 

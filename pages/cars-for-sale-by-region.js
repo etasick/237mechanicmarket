@@ -24,6 +24,10 @@ export default function CarsByRegion() {
 
   return (
     <>
+    <Head>
+        <title>{t('title')}</title>
+        <meta name="description" content={t('description')} />
+      </Head>
       <Header />
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">

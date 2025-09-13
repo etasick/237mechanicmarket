@@ -2,6 +2,7 @@ export const runtime = 'experimental-edge';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { client } from "@/lib/amplifyClient";
+import Head from 'next/head';
 import publicClient from "@/src/amplifyPublicClient";
 import { listListings, listCategories } from "@/src/graphql/queries";
 import { listListingsWithCategory } from "@/src/graphql/customQueries";
@@ -121,9 +122,16 @@ let items = res.data.listListings.items || [];
   useEffect(() => {
     fetchListings();
   }, [model, selectedCategoryId, filters]);
+  const capitalizeModel = (model) => {
+    if (!model) return '';
+    return model.charAt(0).toUpperCase() + model.slice(1);
+  };
 
   return (
     <>
+    <Head>
+<title>{t('title', { model: capitalizeModel(model) })}</title>
+      </Head>
     <Header/>
     <div className="flex flex-col md:flex-row p-6 gap-6">
       {/* Sidebar */}

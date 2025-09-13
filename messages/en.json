@@ -3,6 +3,11 @@
     "logo": "237Mechanic Marketplace",
     "login": "Log In",
     "signup": "Sign Up",
+    "home": "Home",
+    "cars": "Cars",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
     "sell": "Sell a Vehicle or Spare Part",
     "dashboard": "Dashboard",
     "listings": "My Listings",
@@ -398,8 +403,9 @@
     "description": "Need help? Our support team is here for you. Fill out the form below and we’ll respond as soon as possible."
   },
   "CarsByRegion": {
-    "title": "Find Cars for Sale in Cameroon by Region",
+    "title": "Find Cars for Sale in {region} Cameroon",
     "view_cars": "View cars in {region}",
+    "description":"Find a wide selection of cars for sale in {region}, Cameroon. Discover your ideal vehicle at the best price with reliable and up-to-date listings.",
     "regions": {
       "Adamawa": "Adamawa",
       "Centre": "Centre",
@@ -414,10 +420,13 @@
     }
   },
    "CarsByCity": {
-    "title": "Find Cars for Sale in Cameroon by City",
-    "viewCars": "View cars in {city}"
+    "title": "Car listings for sale in {city}, Cameroon",
+    "viewCars": "View cars in {city}",
+    "description": "Browse cars for sale in {city}, Cameroon. Find affordable new and used vehicles from trusted sellers. Buy your next car easily today."
+    
   },
   "ManufacturerCarsForSale": {
+    "title": "{manufacturer} Cars for Sale in Cameroon - Buy Used Vehicles",
     "filters": {
       "title": "Filter {manufacturer} Cars",
       "defaultTitle": "Filter Cars",
@@ -455,6 +464,7 @@
     }
   },
   "CarsForSaleConditionPage": {
+    "title": "{condition} Cars for Sale in Cameroon - Buy Used Vehicles",
     "filters": {
       "title": "Filters",
       "searchPlaceholder": "Search...",
@@ -483,6 +493,7 @@
     }
   },
   "ModelCarsForSale": {
+    "title": "{model} Cars for Sale in Cameroon - Buy Used Vehicles",
     "filters": {
       "title": "Filter Options",
       "keyword": "Search keyword",
@@ -695,7 +706,8 @@
     "signOut": "Sign Out"
   },
   "CarsForSale": {
-    "title": "cars for Sale",
+    "title": "Affordable Used Cars for Sale in Cameroon - Nationwide Listings",
+    "description":"Buy and Sell Cars in Cameroon - Used Vehicle Marketplace",
     "manufacturer": "Manufacturer",
     "model": "Model",
     "region": "Region",

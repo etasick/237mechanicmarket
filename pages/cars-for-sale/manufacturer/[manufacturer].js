@@ -1,6 +1,7 @@
 export const runtime = 'experimental-edge';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Head from 'next/head';
 import { client } from "@/lib/amplifyClient";
 import publicClient from "@/src/amplifyPublicClient";
 import { listListings, listCategories } from "@/src/graphql/queries";
@@ -130,6 +131,9 @@ export default function ManufacturerCarsForSale() {
 
   return (
     <>
+    <Head>
+<title>{t('title', { manufacturer: capitalizeManufacturer(manufacturer) })}</title>
+      </Head>
     <Header/>
     <div className="flex flex-col md:flex-row p-6 gap-6">
       {/* ✅ Sidebar Filters */}

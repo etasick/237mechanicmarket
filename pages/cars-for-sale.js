@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { listListings, listCategories } from "@/src/graphql/queries";
 import { listListingsWithCategory } from "@/src/graphql/customQueries";
 import { client } from "@/lib/amplifyClient";
+import Head from 'next/head';
 import publicClient from "@/src/amplifyPublicClient";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -242,6 +243,10 @@ export default function CarsForSalePage({ initialCategory = "cars" }) {
 
   return (
     <>
+     <Head>
+        <title>{t('title')}</title>
+        <meta name="description" content={t('description')} />
+      </Head>
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 py-8">

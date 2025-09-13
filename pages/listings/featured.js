@@ -89,7 +89,7 @@ export default function FeaturedPage() {
     if (!nextToken || loadingMore) return;
     setLoadingMore(true);
     try {
-      const { data } = await client.graphql({
+      const { data } = await publicClient.graphql({
         query: listListingsWithCategory,
         variables: {
           limit: 12,

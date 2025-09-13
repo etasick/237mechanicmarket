@@ -1,19 +1,40 @@
 import Link from "next/link";
 import Header from "@/components/Header";
+import Head from 'next/head';
 import Footer from "@/components/Footer";
 import { useTranslations } from 'next-intl';
 
 const cities = [
-  "Douala",
-  "Yaoundé",
-  "Bamenda",
-  "Buea",
-  "Garoua",
-  "Maroua",
-  "Ngaoundéré",
-  "Bertoua",
-  "Ebolowa",
-  "Kumba",
+  'Douala',
+  'Nkongsamba',
+  'Loum',
+  'Yaoundé',
+  'Mbalmayo',
+  'Obala',
+  'Bafoussam',
+  'Dschang',
+  'Foumban',
+  'Buea',
+  'Limbe',
+  'Kumba',
+  'Bamenda',
+  'Kumbo',
+  'Ndop',
+  'Garoua',
+  'Guider',
+  'Poli',
+  'Maroua',
+  'Kousséri',
+  'Mora',
+  'Bertoua',
+  'Batouri',
+  'Yokadouma',
+  'Ngaoundéré',
+  'Meiganga',
+  'Tignère',
+  'Ebolowa',
+  'Sangmélima',
+  'Kribi',
 ];
 
 export default function CarsByCity() {
@@ -21,6 +42,10 @@ export default function CarsByCity() {
 
   return (
     <>
+     <Head>
+        <title>{t('title')}</title>
+        <meta name="description" content={t('description')} />
+      </Head>
       <Header />
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">

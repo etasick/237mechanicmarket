@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Head from 'next/head';
 import { listListings, listCategories } from "@/src/graphql/queries";
 import { listListingsWithCategory } from "@/src/graphql/customQueries";
 import { client } from "@/lib/amplifyClient";
@@ -139,6 +140,9 @@ export default function CarsForSaleConditionPage() {
 
   return (
     <>
+    <Head>
+<title>{t('title', { condition: capitalizeCondition(condition) })}</title>
+      </Head>
     <Header/>
     <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-6">
       {/* Left sidebar filters */}

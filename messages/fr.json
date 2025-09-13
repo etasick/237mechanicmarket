@@ -2,6 +2,11 @@
   "header": {
     "logo": "Marché 237Mechanic",
     "login": "Se connecter",
+    "home": "Accueil",
+    "cars": "Voitures",
+    "about": "À propos",
+    "contact": "Contact",
+    "language": "Langue",
     "signup": "Créer un compte",
     "sell": "Vendre un véhicule ou une pièce",
     "dashboard": "Tableau de bord",
@@ -383,8 +388,9 @@
     "description": "Besoin d'aide ? Notre équipe support est là pour vous. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais."
   },
   "CarsByRegion": {
-    "title": "Trouvez des voitures à vendre au Cameroun par région",
+    "title": "Trouvez des voitures à vendre dans la région de {region}, Cameroun",
     "view_cars": "Voir les voitures à {region}",
+    "description":"Découvrez une large sélection de voitures à vendre dans la région de {region}, Cameroun. Trouvez le véhicule idéal au meilleur prix avec des annonces fiables et actualisées.",
     "regions": {
       "Adamawa": "Adamaoua",
       "Centre": "Centre",
@@ -399,10 +405,12 @@
     }
   },
   "CarsByCity": {
-    "title": "Trouvez des voitures à vendre au Cameroun par ville",
-    "viewCars": "Voir les voitures à {city}"
+    "title": "Annonces de voitures à vendre à {city}, Cameroun",
+    "viewCars": "Voir les voitures à {city}",
+    "description":"Découvrez des voitures à vendre à {city}, Cameroun. Trouvez des véhicules neufs et d’occasion à prix abordable auprès de vendeurs fiables."
   },
   "ManufacturerCarsForSale": {
+    "title": "Voitures {manufacturer} à vendre au Cameroun - Acheter des véhicules d'occasion",
     "filters": {
       "title": "Filtrer les voitures {manufacturer}",
       "defaultTitle": "Filtrer les voitures",
@@ -440,6 +448,7 @@
     }
   },
   "CarsForSaleConditionPage": {
+    "title": "Voitures {condtion} à vendre au Cameroun - Acheter des véhicules d'occasion",
     "filters": {
       "title": "Filtres",
       "searchPlaceholder": "Rechercher...",
@@ -468,6 +477,7 @@
     }
   },
   "ModelCarsForSale": {
+    "title": "Voitures {model} à vendre au Cameroun - Acheter des véhicules d'occasion",
     "filters": {
       "title": "Options de filtrage",
       "keyword": "Rechercher un mot-clé",
@@ -680,7 +690,8 @@
     "signOut": "Se déconnecter"
   },
   "CarsForSale": {
-    "title": "Voitures à vendre",
+    "title": "Voitures d'occasion à vendre au Cameroun - Véhicules abordables dans tout le pays",
+    "description":"Acheter et vendre des voitures au Cameroun - Marché des véhicules d'occasion",
     "manufacturer": "Fabricant",
     "model": "Modèle",
     "region": "Région",
