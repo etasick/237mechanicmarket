@@ -91,7 +91,7 @@ export default function ListingDetails() {
 
       const { fromName, fromEmail, body } = formData;
 
-      // Construct message input
+      
       const input = {
         listingId: listing.id,
         listingTitle: listing.title,
