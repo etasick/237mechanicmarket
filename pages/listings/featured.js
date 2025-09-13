@@ -1,4 +1,3 @@
-// pages/index.js
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
@@ -7,6 +6,7 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { generateClient,API } from 'aws-amplify/api';
+import { useTranslations } from 'next-intl';
 
 import { listListings, listCategories } from '@/src/graphql/queries';
 import { listListingsWithCategory } from '@/src/graphql/customQueries';
@@ -36,6 +36,7 @@ const POPULAR_CITIES = [
 ];
 
 export default function FeaturedPage() {
+  const t = useTranslations('FeaturedPage');
   // Data
   const [categories, setCategories] = useState([]);
   const [listings, setListings] = useState([]);
@@ -143,7 +144,7 @@ export default function FeaturedPage() {
   return (
     <>
       <Head>
-        <title>237Mechanic Marketplace • Featured Listings: cars for sale ,motorcycles for sale , Spare  Parts for sale & More</title>
+        <title>{t('title')}</title>
       </Head>
 
       <Header />
@@ -152,17 +153,17 @@ export default function FeaturedPage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-6xl mx-auto px-4 py-10">
           <h1 className="text-3xl sm:text-5xl font-bold text-center">
-            Find your next ride or part in Cameroon
+            {t('hero.title')}
           </h1>
           <p className="text-center mt-3 opacity-90">
-            Featured listings from trusted sellers nationwide.
+            {t('hero.subtitle')}
           </p>
 
           {/* Search bar */}
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <input
               className="w-full sm:w-[520px] rounded-lg p-3 text-gray-900"
-              placeholder="Search by title, brand, model, keyword…"
+              placeholder={t('hero.searchPlaceholder')}
               value={filters.search}
               onChange={(e) => setFilters((f) => ({ ...f, search: e.target.value }))}
             />
@@ -170,7 +171,7 @@ export default function FeaturedPage() {
               onClick={() => {}}
               className="rounded-lg px-5 py-3 bg-white text-blue-700 font-semibold"
             >
-              Search
+              {t('hero.searchButton')}
             </button>
           </div>
 
@@ -182,7 +183,7 @@ export default function FeaturedPage() {
                 !filters.categoryId ? 'bg-white text-blue-700' : 'bg-blue-700 text-white'
               }`}
             >
-              Featured listings
+              {t('hero.featuredListings')}
             </button>
             {categories.map((c) => (
               <button
@@ -202,12 +203,12 @@ export default function FeaturedPage() {
       {/* POPULAR BRANDS */}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-xl font-semibold">Popular Brands</h2>
+          <h2 className="text-xl font-semibold">{t('brands.title')}</h2>
           <button
             className="text-blue-600 hover:underline"
             onClick={() => setFilters((f) => ({ ...f, manufacturer: '' }))}
           >
-            Clear brand
+            {t('brands.clear')}
           </button>
         </div>
         <div className="flex gap-2 overflow-x-auto pb-2">
@@ -233,12 +234,12 @@ export default function FeaturedPage() {
           {/* Regions */}
           <div className="bg-white rounded-xl shadow p-5">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold">Browse by Region</h3>
+              <h3 className="font-semibold">{t('regions.title')}</h3>
               <button
                 className="text-sm text-blue-600 hover:underline"
                 onClick={() => setFilters((f) => ({ ...f, region: '' }))}
               >
-                Clear
+                {t('regions.clear')}
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -261,12 +262,12 @@ export default function FeaturedPage() {
           {/* Cities */}
           <div className="bg-white rounded-xl shadow p-5 lg:col-span-2">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold">Popular Cities</h3>
+              <h3 className="font-semibold">{t('cities.title')}</h3>
               <button
                 className="text-sm text-blue-600 hover:underline"
                 onClick={() => setFilters((f) => ({ ...f, city: '' }))}
               >
-                Clear
+                {t('cities.clear')}
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -294,27 +295,27 @@ export default function FeaturedPage() {
           <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">
             <input
               className="border p-2 rounded"
-              placeholder="Manufacturer"
+              placeholder={t('filters.manufacturer')}
               value={filters.manufacturer}
               onChange={(e) => setFilters((f) => ({ ...f, manufacturer: e.target.value }))}
             />
             <input
               className="border p-2 rounded"
-              placeholder="Model"
+              placeholder={t('filters.model')}
               value={filters.model}
               onChange={(e) => setFilters((f) => ({ ...f, model: e.target.value }))}
             />
             <input
               className="border p-2 rounded"
               type="number"
-              placeholder="Min Price"
+              placeholder={t('filters.minPrice')}
               value={filters.minPrice}
               onChange={(e) => setFilters((f) => ({ ...f, minPrice: e.target.value }))}
             />
             <input
               className="border p-2 rounded"
               type="number"
-              placeholder="Max Price"
+              placeholder={t('filters.maxPrice')}
               value={filters.maxPrice}
               onChange={(e) => setFilters((f) => ({ ...f, maxPrice: e.target.value }))}
             />
@@ -333,13 +334,13 @@ export default function FeaturedPage() {
                 })
               }
             >
-              Clear all
+              {t('filters.clearAll')}
             </button>
             <Link
               className="bg-blue-600 text-white rounded p-2 text-center"
               href="/account/create-listing"
             >
-              + Post Listing
+              {t('filters.postListing')}
             </Link>
           </div>
         </div>
@@ -347,13 +348,13 @@ export default function FeaturedPage() {
 
       {/* LISTINGS (centered, full column) */}
       <main className="max-w-4xl mx-auto px-4 pb-16 pt-6">
-        <h2 className="text-xl font-semibold mb-4">Featured Listings</h2>
+        <h2 className="text-xl font-semibold mb-4">{t('listings.title')}</h2>
 
         {loading ? (
-          <div className="text-center text-gray-500 py-10">Loading marketplace…</div>
+          <div className="text-center text-gray-500 py-10">{t('listings.loading')}</div>
         ) : filtered.length === 0 ? (
           <div className="text-center text-gray-500 py-10">
-            No Featured listings match your filters.
+            {t('listings.noResults')}
           </div>
         ) : (
           <>
@@ -383,22 +384,22 @@ export default function FeaturedPage() {
 
                         <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-gray-700">
                           {specs.manufacturer && (
-                            <div className="border rounded px-2 py-1">Brand: {specs.manufacturer}</div>
+                            <div className="border rounded px-2 py-1">{t('listings.specs.brand')}: {specs.manufacturer}</div>
                           )}
                           {specs.model && (
-                            <div className="border rounded px-2 py-1">Model: {specs.model}</div>
+                            <div className="border rounded px-2 py-1">{t('listings.specs.model')}: {specs.model}</div>
                           )}
                           {specs.year && (
-                            <div className="border rounded px-2 py-1">Year: {specs.year}</div>
+                            <div className="border rounded px-2 py-1">{t('listings.specs.year')}: {specs.year}</div>
                           )}
                           {specs.fuelType && (
-                            <div className="border rounded px-2 py-1">Fuel: {specs.fuelType}</div>
+                            <div className="border rounded px-2 py-1">{t('listings.specs.fuel')}: {specs.fuelType}</div>
                           )}
                           {specs.transmission && (
-                            <div className="border rounded px-2 py-1">Trans: {specs.transmission}</div>
+                            <div className="border rounded px-2 py-1">{t('listings.specs.transmission')}: {specs.transmission}</div>
                           )}
                           {item.condition && (
-                            <div className="border rounded px-2 py-1">Condition: {item.condition}</div>
+                            <div className="border rounded px-2 py-1">{t('listings.specs.condition')}: {item.condition}</div>
                           )}
                         </div>
 
@@ -406,7 +407,7 @@ export default function FeaturedPage() {
 
                         <div className="mt-4">
                           <span className="inline-block text-blue-600 hover:underline font-medium">
-                            View details →
+                            {t('listings.viewDetails')} →
                           </span>
                         </div>
                       </div>
@@ -424,7 +425,7 @@ export default function FeaturedPage() {
                   disabled={loadingMore}
                   className="px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-black disabled:opacity-60"
                 >
-                  {loadingMore ? 'Loading…' : 'Load more'}
+                  {loadingMore ? t('listings.loadingMore') : t('listings.loadMore')}
                 </button>
               </div>
             )}
@@ -439,7 +440,7 @@ export default function FeaturedPage() {
 export async function getStaticProps({locale}) {
   return {
     props: {
-      messages: (await import(`../messages/${locale}.json`)).default,
+      messages: (await import(`../../messages/${locale}.json`)).default,
       locale
     }
   };

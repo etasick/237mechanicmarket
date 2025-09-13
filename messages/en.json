@@ -729,6 +729,52 @@
     "condition": "Condition",
     "featured": "Featured",
     "unknownError": "Unknown error"
+  },
+  "FeaturedPage": {
+    "title": "237Mechanic Marketplace • Featured Listings: cars for sale, motorcycles for sale, Spare Parts for sale & More",
+    "hero": {
+      "title": "Find your next ride or part in Cameroon",
+      "subtitle": "Featured listings from trusted sellers nationwide.",
+      "searchPlaceholder": "Search by title, brand, model, keyword…",
+      "searchButton": "Search",
+      "featuredListings": "Featured listings"
+    },
+    "brands": {
+      "title": "Popular Brands",
+      "clear": "Clear brand"
+    },
+    "regions": {
+      "title": "Browse by Region",
+      "clear": "Clear"
+    },
+    "cities": {
+      "title": "Popular Cities",
+      "clear": "Clear"
+    },
+    "filters": {
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "clearAll": "Clear all",
+      "postListing": "+ Post Listing"
+    },
+    "listings": {
+      "title": "Featured Listings",
+      "loading": "Loading marketplace…",
+      "noResults": "No Featured listings match your filters.",
+      "loadingMore": "Loading…",
+      "loadMore": "Load more",
+      "viewDetails": "View details",
+      "specs": {
+        "brand": "Brand",
+        "model": "Model",
+        "year": "Year",
+        "fuel": "Fuel",
+        "transmission": "Trans",
+        "condition": "Condition"
+      }
+    }
   }
 
 }

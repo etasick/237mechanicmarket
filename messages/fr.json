@@ -714,6 +714,52 @@
     "condition": "État",
     "featured": "Mis en avant",
     "unknownError": "Erreur inconnue"
+  },
+  "FeaturedPage": {
+    "title": "237Mechanic Marketplace • Annonces en vedette : voitures à vendre, motos à vendre, Pièces détachées à vendre et plus encore",
+    "hero": {
+      "title": "Trouvez votre prochain véhicule ou pièce au Cameroun",
+      "subtitle": "Annonces en vedette de vendeurs fiables à travers tout le pays.",
+      "searchPlaceholder": "Rechercher par titre, marque, modèle, mot-clé…",
+      "searchButton": "Rechercher",
+      "featuredListings": "Annonces en vedette"
+    },
+    "brands": {
+      "title": "Marques Populaires",
+      "clear": "Effacer la marque"
+    },
+    "regions": {
+      "title": "Parcourir par Région",
+      "clear": "Effacer"
+    },
+    "cities": {
+      "title": "Villes Populaires",
+      "clear": "Effacer"
+    },
+    "filters": {
+      "manufacturer": "Fabricant",
+      "model": "Modèle",
+      "minPrice": "Prix Min",
+      "maxPrice": "Prix Max",
+      "clearAll": "Tout effacer",
+      "postListing": "+ Publier une annonce"
+    },
+    "listings": {
+      "title": "Annonces en vedette",
+      "loading": "Chargement du marché…",
+      "noResults": "Aucune annonce en vedette ne correspond à vos filtres.",
+      "loadingMore": "Chargement…",
+      "loadMore": "Charger plus",
+      "viewDetails": "Voir les détails",
+      "specs": {
+        "brand": "Marque",
+        "model": "Modèle",
+        "year": "Année",
+        "fuel": "Carburant",
+        "transmission": "Trans",
+        "condition": "État"
+      }
+    }
   }
 
 }
