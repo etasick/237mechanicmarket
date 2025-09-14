@@ -1,4 +1,3 @@
-'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
 import Link from 'next/link';
@@ -43,7 +42,7 @@ export default function HomePage() {
   const [nextToken, setNextToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const hasResetFilters = useRef(false);
+
 
   // Filters (live)
   const [filters, setFilters] = useState({
@@ -61,8 +60,6 @@ export default function HomePage() {
   // After fetching categories and listings in useEffect:
   // ✅ A helper to fetch listings with consistent filters
 // ✅ A helper to fetch listings with consistent filters
-// ✅ Centralized fetch function with filters pushed to API
-
 const fetchListings = async ({ nextToken = null, limit = 12, categoryId }) => {
   const { data } = await publicClient.graphql({
     query: listListingsWithCategory,
@@ -170,13 +167,8 @@ const loadMore = async () => {
     });
   }, [listings, filters]);
   useEffect(() => {
-  if (!loading && filtered.length === 0 && !hasResetFilters.current) {
+  if (!loading && filtered.length === 0) {
     console.warn("No results, resetting filters...");
-
-    // prevent infinite loop
-    hasResetFilters.current = true;
-
-    // reset filters to default
     setFilters({
       categoryId: '',
       region: '',
