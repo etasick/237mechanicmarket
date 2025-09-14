@@ -42,7 +42,7 @@ export default function HomePage() {
   const [nextToken, setNextToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [defaultCategoryId, setDefaultCategoryId] = useState(null);
+  const [defaultCategoryId, setDefaultCategoryId] = useState('386a1714-07d2-423b-9eff-e6c842f1a09b');
 
 
   
