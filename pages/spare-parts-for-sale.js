@@ -1,9 +1,14 @@
+'use client'; // Required for useTranslations hook
+
 import React, { useEffect, useState } from "react";
 import { client } from "@/lib/amplifyClient";
 import { listListings, listCategories } from "@/src/graphql/queries";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import publicClient from "@/src/amplifyPublicClient";
+import { listListingsWithCategory } from "@/src/graphql/customQueries";
 import Link from "next/link";
+import { useTranslations } from 'next-intl'; // Import useTranslations
 
 const standardSpareParts = [
   "partName",
@@ -16,6 +21,9 @@ const standardSpareParts = [
 ];
 
 export default function SparePartsForSalePage() {
+  const t = useTranslations('SpareParts'); // Use translations for this page
+  const commonT = useTranslations('common'); // For common translations
+  
   const [filters, setFilters] = useState({
     keyword: "",
     brand: "",
@@ -47,7 +55,7 @@ export default function SparePartsForSalePage() {
 
   async function fetchCategories() {
     try {
-      const { data } = await client.graphql({ query: listCategories });
+      const { data } = await publicClient.graphql({ query: listCategories });
       setCategories(data.listCategories.items);
       const cat = data.listCategories.items.find(c => c.slug === "spare-parts");
       setSparePartsCategory(cat);
@@ -68,8 +76,8 @@ export default function SparePartsForSalePage() {
         ...(filters.featured && { isFeatured: { eq: filters.featured === "true" } }),
       };
 
-      const res = await client.graphql({
-        query: listListings,
+      const res = await publicClient.graphql({
+        query: listListingsWithCategory,
         variables: { filter: filterInput, limit: 50 },
       });
 
@@ -120,12 +128,12 @@ export default function SparePartsForSalePage() {
       <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-6">
         {/* Sidebar filters */}
         <aside className="w-full lg:w-1/4 bg-white shadow p-4 rounded">
-          <h2 className="text-lg font-bold mb-4">Filters</h2>
+          <h2 className="text-lg font-bold mb-4">{t('filters.title')}</h2>
           <input
             name="keyword"
             value={filters.keyword}
             onChange={handleFilterChange}
-            placeholder="Search parts..."
+            placeholder={t('filters.searchPlaceholder')}
             className="border p-2 rounded w-full mb-2"
           />
           <select
@@ -134,9 +142,9 @@ export default function SparePartsForSalePage() {
             onChange={handleFilterChange}
             className="border p-2 rounded w-full mb-2"
           >
-            <option value="">All Brands</option>
+            <option value="">{t('filters.allBrands')}</option>
             {brands.map((b) => (
-              <option key={b}>{b}</option>
+              <option key={b} value={b}>{b}</option>
             ))}
           </select>
           <select
@@ -145,9 +153,9 @@ export default function SparePartsForSalePage() {
             onChange={handleFilterChange}
             className="border p-2 rounded w-full mb-2"
           >
-            <option value="">All Regions</option>
+            <option value="">{t('filters.allRegions')}</option>
             {regions.map((r) => (
-              <option key={r}>{r}</option>
+              <option key={r} value={r}>{r}</option>
             ))}
           </select>
           <select
@@ -156,9 +164,9 @@ export default function SparePartsForSalePage() {
             onChange={handleFilterChange}
             className="border p-2 rounded w-full mb-2"
           >
-            <option value="">All Cities</option>
+            <option value="">{t('filters.allCities')}</option>
             {cities.map((c) => (
-              <option key={c}>{c}</option>
+              <option key={c} value={c}>{c}</option>
             ))}
           </select>
           <select
@@ -167,9 +175,9 @@ export default function SparePartsForSalePage() {
             onChange={handleFilterChange}
             className="border p-2 rounded w-full mb-2"
           >
-            <option value="">Featured & Non-Featured</option>
-            <option value="true">Featured Only</option>
-            <option value="false">Non-Featured Only</option>
+            <option value="">{t('filters.featuredAll')}</option>
+            <option value="true">{t('filters.featuredOnly')}</option>
+            <option value="false">{t('filters.nonFeaturedOnly')}</option>
           </select>
           <select
             name="sortBy"
@@ -177,19 +185,19 @@ export default function SparePartsForSalePage() {
             onChange={handleFilterChange}
             className="border p-2 rounded w-full"
           >
-            <option value="createdAt_DESC">Newest First</option>
-            <option value="createdAt_ASC">Oldest First</option>
-            <option value="price_ASC">Price: Low to High</option>
-            <option value="price_DESC">Price: High to Low</option>
+            <option value="createdAt_DESC">{t('sort.newestFirst')}</option>
+            <option value="createdAt_ASC">{t('sort.oldestFirst')}</option>
+            <option value="price_ASC">{t('sort.priceLowToHigh')}</option>
+            <option value="price_DESC">{t('sort.priceHighToLow')}</option>
           </select>
         </aside>
 
         {/* Spare Parts Listings */}
         <main className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {loading ? (
-            <p>Loading spare parts...</p>
+            <p>{t('listings.loading')}</p>
           ) : listings.length === 0 ? (
-            <p>No spare parts found.</p>
+            <p>{t('listings.noResults')}</p>
           ) : (
             listings.map((part) => (
               <div
@@ -212,13 +220,13 @@ export default function SparePartsForSalePage() {
                   <p className="text-red-600 font-bold">
                     {part.price
                       ? `${part.price} ${part.currency || "FCFA"}`
-                      : "Price on request"}
+                      : t('listings.priceOnRequest')}
                   </p>
                   <Link
-                    href={`/listing/${part.id}`}
+                    href={`/listings/${part.category.slug}/${part.id}`}
                     className="mt-auto inline-block bg-blue-600 text-white rounded px-4 py-2 text-center hover:bg-blue-700"
                   >
-                    View Details
+                    {t('listings.viewDetails')}
                   </Link>
                 </div>
               </div>
@@ -229,4 +237,12 @@ export default function SparePartsForSalePage() {
       <Footer />
     </>
   );
+}
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: (await import(`../messages/${locale}.json`)).default,
+      locale,
+    },
+  };
 }

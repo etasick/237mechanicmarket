@@ -1,10 +1,15 @@
+'use client'; // Required for useTranslations hook
+
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { listListings,listCategories} from "@/src/graphql/queries";
+import publicClient from "@/src/amplifyPublicClient";
+import { listListingsWithCategory } from "@/src/graphql/customQueries";
 import { client } from "@/lib/amplifyClient";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useTranslations } from 'next-intl'; // Import useTranslations
 
 // Helper to parse specs JSON safely
 function parseSpecs(specs) {
@@ -66,6 +71,9 @@ const cities = ["Douala", "Yaoundé", "Bamenda", "Buea"];
 const conditions = ["new", "used"];
 
 export default function MootorCyclesForSalePage({ initialCategory = "motorcycles" }) {
+  const t = useTranslations('Motorcycles'); // Use translations for this page
+  const commonT = useTranslations('common'); // For common translations like "contact seller"
+  
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const router = useRouter();
 
@@ -98,7 +106,7 @@ useEffect(() => {
 
 async function fetchCategories() {
   try {
-    const res = await client.graphql({ query: listCategories });
+    const res = await publicClient.graphql({ query: listCategories });
     const cats = res.data.listCategories.items;
     setCategories(cats);
 
@@ -141,8 +149,8 @@ useEffect(() => {
         ...(filters.featured && { isFeatured: { eq: filters.featured === "true" } }),
       };
 
-      const res = await client.graphql({
-        query: listListings,
+      const res = await publicClient.graphql({
+        query: listListingsWithCategory,
         variables: { filter: filterInput, limit: 20 },
       });
 
@@ -201,12 +209,21 @@ useEffect(() => {
     });
   };
 
+  // Helper function to capitalize and translate category name
+  const getCategoryTitle = (category) => {
+    const categoryName = category.replace("-", " ");
+    // You can add specific translations for category names if needed
+    return categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+  };
+
   return (
     <>
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-6 capitalize">{selectedCategory.replace("-", " ")} for Sale</h1>
+        <h1 className="text-2xl font-bold mb-6 capitalize">
+          {getCategoryTitle(selectedCategory)} {t('forSale')}
+        </h1>
 
         {/* Filters */}
         <div className="bg-white shadow p-4 rounded-lg mb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -221,9 +238,9 @@ useEffect(() => {
                     onChange={handleFilterChange}
                     className="border p-2 rounded"
                   >
-                    <option value="">All Manufacturers</option>
+                    <option value="">{t('filters.allManufacturers')}</option>
                     {manufacturers.map((m) => (
-                      <option key={m}>{m}</option>
+                      <option key={m} value={m}>{m}</option>
                     ))}
                   </select>
                 );
@@ -236,9 +253,9 @@ useEffect(() => {
                     onChange={handleFilterChange}
                     className="border p-2 rounded"
                   >
-                    <option value="">All Models</option>
+                    <option value="">{t('filters.allModels')}</option>
                     {models.map((m) => (
-                      <option key={m}>{m}</option>
+                      <option key={m} value={m}>{m}</option>
                     ))}
                   </select>
                 );
@@ -251,9 +268,9 @@ useEffect(() => {
                     onChange={handleFilterChange}
                     className="border p-2 rounded"
                   >
-                    <option value="">All Regions</option>
+                    <option value="">{t('filters.allRegions')}</option>
                     {regions.map((r) => (
-                      <option key={r}>{r}</option>
+                      <option key={r} value={r}>{r}</option>
                     ))}
                   </select>
                 );
@@ -266,9 +283,9 @@ useEffect(() => {
                     onChange={handleFilterChange}
                     className="border p-2 rounded"
                   >
-                    <option value="">All Cities</option>
+                    <option value="">{t('filters.allCities')}</option>
                     {cities.map((c) => (
-                      <option key={c}>{c}</option>
+                      <option key={c} value={c}>{c}</option>
                     ))}
                   </select>
                 );
@@ -281,9 +298,9 @@ useEffect(() => {
                     onChange={handleFilterChange}
                     className="border p-2 rounded"
                   >
-                    <option value="">All Conditions</option>
+                    <option value="">{t('filters.allConditions')}</option>
                     {conditions.map((c) => (
-                      <option key={c}>{c}</option>
+                      <option key={c} value={c}>{c}</option>
                     ))}
                   </select>
                 );
@@ -296,9 +313,9 @@ useEffect(() => {
                     onChange={handleFilterChange}
                     className="border p-2 rounded"
                   >
-                    <option value="">Featured & Non-Featured</option>
-                    <option value="true">Featured Only</option>
-                    <option value="false">Non-Featured Only</option>
+                    <option value="">{t('filters.featuredAll')}</option>
+                    <option value="true">{t('filters.featuredOnly')}</option>
+                    <option value="false">{t('filters.nonFeaturedOnly')}</option>
                   </select>
                 );
               default:
@@ -309,9 +326,9 @@ useEffect(() => {
 
         {/* Listings */}
         {loading ? (
-          <p>Loading motorcycles...</p>
+          <p>{t('listings.loading')}</p>
         ) : listings.length === 0 ? (
-          <p>No motorcycles found</p>
+          <p>{t('listings.noResults')}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {listings.map((item) => {
@@ -329,23 +346,23 @@ useEffect(() => {
                   <div className="p-4 flex flex-col flex-grow">
                     <h3 className="font-semibold text-lg">{item.title}</h3>
                     <p className="text-gray-500 text-sm">
-                      {specs.manufacturer && `Manufacturer: ${specs.manufacturer}`}{" "}
-                      {specs.model && `| Model: ${specs.model}`}{" "}
-                      {specs.year && `| Year: ${specs.year}`}{" "}
-                      {specs.mileage && `| Mileage: ${specs.mileage} km`}
+                      {specs.manufacturer && `${t('listings.manufacturer')}: ${specs.manufacturer}`}{" "}
+                      {specs.model && `| ${t('listings.model')}: ${specs.model}`}{" "}
+                      {specs.year && `| ${t('listings.year')}: ${specs.year}`}{" "}
+                      {specs.mileage && `| ${t('listings.mileage')}: ${specs.mileage} km`}
                     </p>
                     <p className="text-red-600 font-bold mt-2">
-                      {item.price ? `${item.price} ${item.currency || "FCFA"}` : "Price on request"}
+                      {item.price ? `${item.price} ${item.currency || "FCFA"}` : t('listings.priceOnRequest')}
                     </p>
                     <p className="text-sm text-gray-400">
                       {item.location} {item.region && `, ${item.region}`}
                     </p>
                     <div className="mt-2">
                       <Link
-                        href={`/listing/${item.id}`}
+                        href={`/listings/${item.category.slug}/${item.id}`}
                         className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold"
                       >
-                        contact seller
+                        {commonT('contactSeller')}
                       </Link>
                     </div>
                   </div>
@@ -359,4 +376,12 @@ useEffect(() => {
       <Footer />
     </>
   );
+}
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      messages: (await import(`../messages/${locale}.json`)).default,
+      locale,
+    },
+  };
 }

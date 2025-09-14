@@ -42,6 +42,8 @@ export default function HomePage() {
   const [nextToken, setNextToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [defaultCategoryId, setDefaultCategoryId] = useState(null);
+
 
   
 
@@ -87,6 +89,7 @@ useEffect(() => {
       // 🔑 Find the "cars" category and set it as default
       const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
       if (carsCategory) {
+        setDefaultCategoryId(carsCategory.id);  
         setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
       }
 
@@ -113,7 +116,7 @@ useEffect(() => {
         nextToken,
         filter: {
           status: { eq: 'APPROVED' },
-          categoryId: { eq: filters.categoryId }, // 🔑 keep it scoped to cars
+          categoryId: { eq: defaultCategoryId || filters.categoryId }, // 🔑 keep it scoped to cars
         },
       },
     });

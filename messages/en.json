@@ -787,6 +787,54 @@
         "condition": "Condition"
       }
     }
+  },
+  "Motorcycles": {
+    "forSale": "for Sale",
+    "filters": {
+      "allManufacturers": "All Manufacturers",
+      "allModels": "All Models",
+      "allRegions": "All Regions",
+      "allCities": "All Cities",
+      "allConditions": "All Conditions",
+      "featuredAll": "Featured & Non-Featured",
+      "featuredOnly": "Featured Only",
+      "nonFeaturedOnly": "Non-Featured Only"
+    },
+    "listings": {
+      "loading": "Loading motorcycles...",
+      "noResults": "No motorcycles found",
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "year": "Year",
+      "mileage": "Mileage",
+      "priceOnRequest": "Price on request"
+    }
+  }, "SpareParts": {
+    "filters": {
+      "title": "Filters",
+      "searchPlaceholder": "Search parts...",
+      "allBrands": "All Brands",
+      "allRegions": "All Regions",
+      "allCities": "All Cities",
+      "featuredAll": "Featured & Non-Featured",
+      "featuredOnly": "Featured Only",
+      "nonFeaturedOnly": "Non-Featured Only"
+    },
+    "sort": {
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First",
+      "priceLowToHigh": "Price: Low to High",
+      "priceHighToLow": "Price: High to Low"
+    },
+    "listings": {
+      "loading": "Loading spare parts...",
+      "noResults": "No spare parts found.",
+      "priceOnRequest": "Price on request",
+      "viewDetails": "View Details"
+    }
+  },
+  "common": {
+    "contactSeller": "Contact Seller"
   }
 
 }
