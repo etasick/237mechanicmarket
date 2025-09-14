@@ -166,21 +166,6 @@ const loadMore = async () => {
       );
     });
   }, [listings, filters]);
-  useEffect(() => {
-  if (!loading && filtered.length === 0) {
-    console.warn("No results, resetting filters...");
-    setFilters({
-      categoryId: '',
-      region: '',
-      city: '',
-      manufacturer: '',
-      model: '',
-      minPrice: '',
-      maxPrice: '',
-      search: '',
-    });
-  }
-}, [filtered, loading]);
 
   // ---------- UI ----------
   return (
