@@ -42,6 +42,8 @@ export default function HomePage() {
   const [nextToken, setNextToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
+  
+
 
 
   // Filters (live)
@@ -166,6 +168,7 @@ const loadMore = async () => {
       );
     });
   }, [listings, filters]);
+  
 
   // ---------- UI ----------
   return (
