@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useCallback, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -19,6 +19,7 @@ function parseSpecs(specs) {
     return {};
   }
 }
+
 const formatPrice = (price, currency) =>
   price != null ? `${currency} ${Number(price).toLocaleString()}` : 'Price on request';
 
@@ -43,10 +44,6 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
 
-  
-
-
-
   // Filters (live)
   const [filters, setFilters] = useState({
     categoryId: '',
@@ -60,75 +57,82 @@ export default function HomePage() {
   });
 
   // Initial load
-  // After fetching categories and listings in useEffect:
-  // ✅ A helper to fetch listings with consistent filters
-// ✅ A helper to fetch listings with consistent filters
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      try {
+        // Fetch categories
+        const { data: catData } = await publicClient.graphql({ query: listCategories });
+        const categoriesFetched = catData?.listCategories?.items ?? [];
+        setCategories(categoriesFetched);
 
+        // Find default category (e.g., "cars")
+        const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
+        const categoryId = carsCategory?.id || '';
 
+        // Update filters to include default category
+        setFilters((f) => ({ ...f, categoryId }));
 
-useEffect(() => { 
-  (async () => {
-    setLoading(true);
-    try {
-      const [{ data: cat }, { data: lst }] = await Promise.all([
-        publicClient.graphql({ query: listCategories }),
-        publicClient.graphql({
+        // Build consistent filter for both initial and paginated loads
+        const filter = {
+          status: { eq: 'APPROVED' },
+        };
+        if (categoryId) {
+          filter.categoryId = { eq: categoryId };
+        }
+
+        // Fetch initial listings with consistent filter
+        const { data: listData } = await publicClient.graphql({
           query: listListingsWithCategory,
           variables: {
             limit: 12,
-            filter: { status: { eq: 'APPROVED' } },
+            filter,
           },
-        }),
-      ]);
+        });
 
-      const categoriesFetched = cat?.listCategories?.items ?? [];
-      setCategories(categoriesFetched);
+        const items = (listData?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
+        setListings(items);
+        setNextToken(listData?.listListings?.nextToken ?? null);
+      } catch (e) {
+        console.error('Init load error:', e);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
 
-      // 🔑 Find the "cars" category and set it as default
-      const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
-      if (carsCategory) {
-        setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
+  // Load more - now uses latest filters and nextToken
+  const loadMore = useCallback(async () => {
+    if (!nextToken || loadingMore) return;
+
+    setLoadingMore(true);
+    try {
+      // Reuse same filtering logic as initial load
+      const filter = { status: { eq: 'APPROVED' } };
+      if (filters.categoryId) {
+        filter.categoryId = { eq: filters.categoryId };
       }
 
-      const items = (lst?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
-      setListings(items);
-      setNextToken(lst?.listListings?.nextToken ?? null);
-    } catch (e) {
-      console.error('Init load error:', e);
-    } finally {
-      setLoading(false);
-    }
-  })();
-}, []);
-
-  // Load more
- const loadMore = async () => {
-  if (!nextToken || loadingMore) return;
-  setLoadingMore(true);
-  try {
-    const { data } = await publicClient.graphql({
-      query: listListingsWithCategory,
-      variables: {
-        limit: 12,
-        nextToken,
-        filter: {
-          status: { eq: 'APPROVED' },
-          categoryId: { eq: filters.categoryId }, // 🔑 keep it scoped to cars
+      const { data } = await publicClient.graphql({
+        query: listListingsWithCategory,
+        variables: {
+          limit: 12,
+          nextToken,
+          filter,
         },
-      },
-    });
-    const items = (data?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
-    setListings((prev) => [...prev, ...items]);
-    setNextToken(data?.listListings?.nextToken ?? null);
-  } catch (e) {
-    console.error('Load more error:', e);
-  } finally {
-    setLoadingMore(false);
-  }
-};
+      });
 
+      const items = (data?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
+      setListings((prev) => [...prev, ...items]);
+      setNextToken(data?.listListings?.nextToken ?? null);
+    } catch (e) {
+      console.error('Load more error:', e);
+    } finally {
+      setLoadingMore(false);
+    }
+  }, [nextToken, filters, loadingMore]);
 
-  // Real-time filtered view
+  // Real-time filtered view (client-side filtering on loaded items)
   const filtered = useMemo(() => {
     return listings.filter((item) => {
       const specs = parseSpecs(item.specs);
@@ -145,6 +149,7 @@ useEffect(() => {
         (item.description || '').toLowerCase().includes(filters.search.toLowerCase()) ||
         (specs.manufacturer || '').toLowerCase().includes(filters.search.toLowerCase()) ||
         (specs.model || '').toLowerCase().includes(filters.search.toLowerCase());
+
       return (
         matchesCategory &&
         matchesRegion &&
@@ -206,18 +211,17 @@ useEffect(() => {
             >
               {t('hero.allCategories')}
             </button>
-           {categories.map((c) => (
-  <button
-    key={c.id}
-    onClick={() => setFilters((f) => ({ ...f, categoryId: c.id }))}
-    className={`px-4 py-2 rounded-full border border-white/30 ${
-      filters.categoryId === c.id ? 'bg-white text-blue-700' : 'bg-blue-700 text-white'
-    }`}
-  >
-    {t(`categories.${c.slug}`)}   {/* slug = 'cars','motorcycles','spare-parts' */}
-  </button>
-))}
-
+            {categories.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setFilters((f) => ({ ...f, categoryId: c.id }))}
+                className={`px-4 py-2 rounded-full border border-white/30 ${
+                  filters.categoryId === c.id ? 'bg-white text-blue-700' : 'bg-blue-700 text-white'
+                }`}
+              >
+                {t(`categories.${c.slug}`)}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -234,22 +238,19 @@ useEffect(() => {
           </button>
         </div>
         <div className="flex gap-2 overflow-x-auto pb-2">
-          {/* POPULAR BRANDS */}
-{POPULAR_BRANDS.map((b) => (
-  <button
-    key={b}
-    onClick={() => setFilters((f) => ({ ...f, manufacturer: b }))}
-    className={`whitespace-nowrap px-4 py-2 rounded-full border ${
-      filters.manufacturer?.toLowerCase() === b.toLowerCase()
-        ? 'bg-blue-600 text-white'
-        : 'bg-white text-gray-900'
-    }`}
-  >
-    {t(`brands.items.${b.toLowerCase()}`)}
-  </button>
-))}
-
-
+          {POPULAR_BRANDS.map((b) => (
+            <button
+              key={b}
+              onClick={() => setFilters((f) => ({ ...f, manufacturer: b }))}
+              className={`whitespace-nowrap px-4 py-2 rounded-full border ${
+                filters.manufacturer?.toLowerCase() === b.toLowerCase()
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-white text-gray-900'
+              }`}
+            >
+              {t(`brands.items.${b.toLowerCase()}`)}
+            </button>
+          ))}
         </div>
       </section>
 
@@ -262,27 +263,25 @@ useEffect(() => {
               <h3 className="font-semibold">{t('regions.title')}</h3>
               <button
                 className="text-sm text-blue-600 hover:underline"
-                onClick={() => setFilters((f) => ({ ...f, region: '' }))}
+                onClick={() => setFilters((f) => ({ ...f, region: '', city: '' }))}
               >
                 {t('regions.clear')}
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
-             {/* REGIONS */}
-{REGIONS.map((r) => (
-  <button
-    key={r}
-    onClick={() => setFilters((f) => ({ ...f, region: r, city: '' }))}
-    className={`px-3 py-2 rounded-lg border ${
-      filters.region?.toLowerCase() === r.toLowerCase()
-        ? 'bg-blue-600 text-white'
-        : 'bg-white'
-    }`}
-  >
-    {t(`regions.items.${r.replace(/\s+/g, '').toLowerCase()}`)}
-  </button>
-))}
-
+              {REGIONS.map((r) => (
+                <button
+                  key={r}
+                  onClick={() => setFilters((f) => ({ ...f, region: r, city: '' }))}
+                  className={`px-3 py-2 rounded-lg border ${
+                    filters.region?.toLowerCase() === r.toLowerCase()
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white'
+                  }`}
+                >
+                  {t(`regions.items.${r.replace(/\s+/g, '').toLowerCase()}`)}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -298,21 +297,19 @@ useEffect(() => {
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
-             {/* CITIES */}
-{POPULAR_CITIES.map((c) => (
-  <button
-    key={c}
-    onClick={() => setFilters((f) => ({ ...f, city: c, region: '' }))}
-    className={`px-3 py-2 rounded-lg border ${
-      filters.city?.toLowerCase() === c.toLowerCase()
-        ? 'bg-blue-600 text-white'
-        : 'bg-white'
-    }`}
-  >
-    {t(`cities.items.${c.replace(/[éÉ]/g, 'e').replace(/\s+/g, '').toLowerCase()}`)}
-  </button>
-))}
-
+              {POPULAR_CITIES.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setFilters((f) => ({ ...f, city: c, region: '' }))}
+                  className={`px-3 py-2 rounded-lg border ${
+                    filters.city?.toLowerCase() === c.toLowerCase()
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white'
+                  }`}
+                >
+                  {t(`cities.items.${c.replace(/[éÉ]/g, 'e').replace(/\s+/g, '').toLowerCase()}`)}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -375,7 +372,7 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* LISTINGS (centered, full column) */}
+      {/* LISTINGS */}
       <main className="max-w-4xl mx-auto px-4 pb-16 pt-6">
         <h2 className="text-xl font-semibold mb-4">{t('listings.title')}</h2>
 
@@ -467,11 +464,12 @@ useEffect(() => {
   );
 }
 
-export async function getStaticProps({locale}) {
+// Keep your getStaticProps unchanged
+export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: (await import(`../messages/${locale}.json`)).default,
-      locale
-    }
+      locale,
+    },
   };
 }
