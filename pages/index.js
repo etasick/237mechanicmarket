@@ -78,7 +78,10 @@ useEffect(() => {
           query: listListingsWithCategory,
           variables: {
             limit: 12,
-            filter: { status: { eq: 'APPROVED' } },
+            filter: {
+              status: { eq: 'APPROVED' },
+              categoryId: { eq: defaultCategoryId }, 
+            },
           },
         }),
       ]);
@@ -116,7 +119,7 @@ useEffect(() => {
         nextToken,
         filter: {
           status: { eq: 'APPROVED' },
-          categoryId: { eq: defaultCategoryId || filters.categoryId }, // 🔑 keep it scoped to cars
+          categoryId: { eq: filters.categoryId },
         },
       },
     });
