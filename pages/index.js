@@ -67,39 +67,36 @@ export default function HomePage() {
 // ✅ A helper to fetch listings with consistent filters
 
 
-
-useEffect(() => {
+useEffect(() => { 
   (async () => {
     setLoading(true);
     try {
-      // ✅ First: get categories
-      const { data: catData } = await publicClient.graphql({ query: listCategories });
-      const categoriesFetched = catData?.listCategories?.items ?? [];
+      const [{ data: cat }, { data: lst }] = await Promise.all([
+        publicClient.graphql({ query: listCategories }),
+        publicClient.graphql({
+          query: listListingsWithCategory,
+          variables: {
+            limit: 12,
+            filter: {
+              status: { eq: 'APPROVED' }, 
+            },
+          },
+        }),
+      ]);
 
+      const categoriesFetched = cat?.listCategories?.items ?? [];
       setCategories(categoriesFetched);
 
-      // ✅ Then: find the default "cars" category
+      // 🔑 Find the "cars" category and set it as default
       const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
-      const categoryIdToUse = carsCategory?.id || defaultCategoryId; // fallback if none found
+      if (carsCategory) {
+        setDefaultCategoryId(carsCategory.id);  
+        setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
+      }
 
-      setDefaultCategoryId(categoryIdToUse);
-      setFilters((f) => ({ ...f, categoryId: categoryIdToUse }));
-
-      // ✅ NOW: fetch listings WITH the correct categoryId
-      const { data: lstData } = await publicClient.graphql({
-        query: listListingsWithCategory,
-        variables: {
-          limit: 12,
-          filter: {
-            status: { eq: 'APPROVED' },
-            categoryId: { eq: categoryIdToUse }, // ✅ Now it's correct!
-          },
-        },
-      });
-
-      const items = (lstData?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
+      const items = (lst?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
       setListings(items);
-      setNextToken(lstData?.listListings?.nextToken ?? null);
+      setNextToken(lst?.listListings?.nextToken ?? null);
     } catch (e) {
       console.error('Init load error:', e);
     } finally {
@@ -107,6 +104,7 @@ useEffect(() => {
     }
   })();
 }, []);
+
 
   // Load more
  const loadMore = async () => {
