@@ -75,32 +75,31 @@ useEffect(() => {
       setCategories(categoriesFetched);
 
       const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
-      
-
       if (!carsCategory) {
         console.warn("⚠️ No Cars category found");
         setLoading(false);
         return;
       }
 
-      setDefaultCategoryId(carsCategory.id);
-      setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
+      // use a local variable to avoid race conditions
+      const carsCategoryId = carsCategory.id;
 
-
+      // fetch listings directly with cars category
       const { data: lst } = await publicClient.graphql({
         query: listListingsWithCategory,
         variables: {
           limit: 12,
           filter: {
             status: { eq: 'APPROVED' },
-            categoryId: { eq: carsCategory.id },
+            categoryId: { eq: carsCategoryId },
           },
         },
       });
 
       const items = (lst?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
       
-
+      setDefaultCategoryId(carsCategoryId);
+      setFilters((f) => ({ ...f, categoryId: carsCategoryId })); // sync AFTER fetch
       setListings(items);
       setNextToken(lst?.listListings?.nextToken ?? null);
     } catch (e) {
@@ -111,6 +110,7 @@ useEffect(() => {
   })();
 }, []);
 
+
 const loadMore = async () => {
   if (!nextToken || !filters.categoryId) {
     console.log("⚠️ LoadMore skipped", { nextToken, categoryId: filters.categoryId });
@@ -119,7 +119,7 @@ const loadMore = async () => {
 
   console.log("➡️ LoadMore fired with:", { filters, nextToken });
 
-  setLoading(true);
+  setLoadingMore(true);
   try {
     const { data } = await publicClient.graphql({
       query: listListingsWithCategory,
@@ -133,7 +133,7 @@ const loadMore = async () => {
       },
     });
 
-    const newItems = data?.listListings?.items ?? [];
+    const newItems = (data?.listListings?.items ?? []).filter((i) => i?.status === "APPROVED");
     console.log("📥 LoadMore fetched:", {
       count: newItems.length,
       newNextToken: data?.listListings?.nextToken,
@@ -144,9 +144,10 @@ const loadMore = async () => {
   } catch (err) {
     console.error("❌ LoadMore error:", err);
   } finally {
-    setLoading(false);
+    setLoadingMore(false);
   }
 };
+
 
 
 
