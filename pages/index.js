@@ -79,8 +79,7 @@ useEffect(() => {
           variables: {
             limit: 12,
             filter: {
-              status: { eq: 'APPROVED' },
-              categoryId: { eq: defaultCategoryId }, 
+              status: { eq: 'APPROVED' }, 
             },
           },
         }),
