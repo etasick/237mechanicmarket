@@ -8,6 +8,7 @@ import { generateClient } from 'aws-amplify/api';
 import { useTranslations } from 'next-intl';
 import { listListings, listCategories } from '@/src/graphql/queries';
 import { listListingsWithCategory } from '@/src/graphql/customQueries';
+import TestNavigationButton from '@/components/TestNavigationButton';
 
 const client = generateClient();
 
@@ -42,8 +43,7 @@ export default function HomePage() {
   const [nextToken, setNextToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [defaultCategoryId, setDefaultCategoryId] = useState('386a1714-07d2-423b-9eff-e6c842f1a09b');
-
+  const [defaultCategoryId, setDefaultCategoryId] = useState('');
 
   
 
@@ -68,36 +68,38 @@ export default function HomePage() {
 
 
 
-useEffect(() => { 
+useEffect(() => {
   (async () => {
     setLoading(true);
     try {
-      const [{ data: cat }, { data: lst }] = await Promise.all([
-        publicClient.graphql({ query: listCategories }),
-        publicClient.graphql({
-          query: listListingsWithCategory,
-          variables: {
-            limit: 12,
-            filter: {
-              status: { eq: 'APPROVED' }, 
-            },
-          },
-        }),
-      ]);
+      // ✅ First: get categories
+      const { data: catData } = await publicClient.graphql({ query: listCategories });
+      const categoriesFetched = catData?.listCategories?.items ?? [];
 
-      const categoriesFetched = cat?.listCategories?.items ?? [];
       setCategories(categoriesFetched);
 
-      // 🔑 Find the "cars" category and set it as default
+      // ✅ Then: find the default "cars" category
       const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
-      if (carsCategory) {
-        setDefaultCategoryId(carsCategory.id);  
-        setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
-      }
+      const categoryIdToUse = carsCategory?.id || defaultCategoryId; // fallback if none found
 
-      const items = (lst?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
+      setDefaultCategoryId(categoryIdToUse);
+      setFilters((f) => ({ ...f, categoryId: categoryIdToUse }));
+
+      // ✅ NOW: fetch listings WITH the correct categoryId
+      const { data: lstData } = await publicClient.graphql({
+        query: listListingsWithCategory,
+        variables: {
+          limit: 12,
+          filter: {
+            status: { eq: 'APPROVED' },
+            categoryId: { eq: categoryIdToUse }, // ✅ Now it's correct!
+          },
+        },
+      });
+
+      const items = (lstData?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
       setListings(items);
-      setNextToken(lst?.listListings?.nextToken ?? null);
+      setNextToken(lstData?.listListings?.nextToken ?? null);
     } catch (e) {
       console.error('Init load error:', e);
     } finally {
