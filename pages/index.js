@@ -79,7 +79,7 @@ useEffect(() => {
             limit: 12,
             filter: {
               status: { eq: 'APPROVED' }, 
-              categoryId: { eq: filters.categoryId || defaultCategoryId || '386a1714-07d2-423b-9eff-e6c842f1a09b' }
+              categoryId: { eq: '386a1714-07d2-423b-9eff-e6c842f1a09b'||filters.categoryId || defaultCategoryId }
       
             },
           },
