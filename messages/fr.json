@@ -820,6 +820,10 @@
   },
   "common": {
     "contactSeller": "Contacter le vendeur"
+  },
+   "RefreshPage": {
+    "title": "Un problème est survenu",
+    "button": "Rafraîchir la page"
   }
 
 }

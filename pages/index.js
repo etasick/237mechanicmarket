@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
+import RefreshPage from '@/components/RefreshPage';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { generateClient } from 'aws-amplify/api';
@@ -36,6 +38,7 @@ const POPULAR_CITIES = [
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
+  const router = useRouter();
   
   // Data
   const [categories, setCategories] = useState([]);
@@ -110,6 +113,7 @@ useEffect(() => {
 
   // Load more
  const loadMore = async () => {
+  router.replace(router.asPath)
   if (!nextToken || loadingMore) return;
   setLoadingMore(true);
   try {
@@ -393,6 +397,7 @@ useEffect(() => {
         ) : filtered.length === 0 ? (
           <div className="text-center text-gray-500 py-10">
             {t('listings.noResults')}
+            <RefreshPage />
           </div>
         ) : (
           <>

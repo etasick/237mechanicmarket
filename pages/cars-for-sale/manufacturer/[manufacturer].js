@@ -2,6 +2,7 @@ export const runtime = 'experimental-edge';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from 'next/head';
+import RefreshPage from "@/components/RefreshPage";
 import { client } from "@/lib/amplifyClient";
 import publicClient from "@/src/amplifyPublicClient";
 import { listListings, listCategories } from "@/src/graphql/queries";
@@ -235,9 +236,16 @@ export default function ManufacturerCarsForSale() {
         {loading ? (
           <p>{t('listings.loading')}</p>
         ) : listings.length === 0 ? (
+          <div className="text-center">
+
           <p>{manufacturer ? t('listings.noResults', { 
             manufacturer: capitalizeManufacturer(manufacturer) 
           }) : t('listings.noResultsDefault')}</p>
+           <div className="mt-4">
+    <RefreshPage />
+  </div>
+</div>
+          
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {listings.map((listing) => (

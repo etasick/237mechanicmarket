@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { listListings, listCategories } from "@/src/graphql/queries";
 import { listListingsWithCategory } from "@/src/graphql/customQueries";
 import { client } from "@/lib/amplifyClient";
+import RefreshPage from "@/components/RefreshPage";
 import Head from 'next/head';
 import publicClient from "@/src/amplifyPublicClient";
 import Header from "@/components/Header";
@@ -357,7 +358,14 @@ export default function CarsForSalePage({ initialCategory = "cars" }) {
         {loading ? (
           <p>{t('loading')}</p>
         ) : listings.length === 0 ? (
+          <div className="text-center">
+
           <p>{t('noListings')}</p>
+            <div className="mt-4">
+    <RefreshPage />
+  </div>
+  </div>
+          
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {listings.map((item) => {

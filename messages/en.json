@@ -835,6 +835,10 @@
   },
   "common": {
     "contactSeller": "Contact Seller"
+  },
+  "RefreshPage": {
+    "title": "Something went wrong",
+    "button": "Refresh Page"
   }
 
 }

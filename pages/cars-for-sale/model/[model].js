@@ -2,6 +2,7 @@ export const runtime = 'experimental-edge';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { client } from "@/lib/amplifyClient";
+import RefreshPage from "@/components/RefreshPage";
 import Head from 'next/head';
 import publicClient from "@/src/amplifyPublicClient";
 import { listListings, listCategories } from "@/src/graphql/queries";
@@ -240,7 +241,15 @@ let items = res.data.listListings.items || [];
             ))}
           </div>
         ) : (
-          <p>{model ? t('listings.noResults', { model }) : t('listings.noResultsDefault')}</p>
+          <div className="text-center">
+          <p>{model ? t('listings.noResults', { model }) : t('listings.noResultsDefault')}
+            </p>
+           <div className="mt-4">
+    <RefreshPage />
+  </div>
+  </div>
+          
+          
         )}
       </main>
     </div>

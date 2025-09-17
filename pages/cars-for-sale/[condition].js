@@ -7,6 +7,7 @@ import Head from 'next/head';
 import { listListings, listCategories } from "@/src/graphql/queries";
 import { listListingsWithCategory } from "@/src/graphql/customQueries";
 import { client } from "@/lib/amplifyClient";
+import RefreshPage from "@/components/RefreshPage";
 import publicClient from "@/src/amplifyPublicClient";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
@@ -223,7 +224,15 @@ export default function CarsForSaleConditionPage() {
           {loading ? (
             <p>{t('listings.loading')}</p>
           ) : listings.length === 0 ? (
-            <p>{condition ? t('listings.noResults', { condition: capitalizeCondition(condition) }) : t('listings.noResultsDefault')}</p>
+            <div className="text-center">
+
+            <p>{condition ? t('listings.noResults', { condition: capitalizeCondition(condition) }) : t('listings.noResultsDefault')}
+              </p>
+            <div className="mt-4">
+    <RefreshPage />
+  </div>
+</div>
+            
           ) : (
             listings.map((car) => (
               <div key={car.id} className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
