@@ -4,7 +4,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
-import "../src/amplifyClient";
+import "../src/amplifyClient"; // Ensure Amplify is configured
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
