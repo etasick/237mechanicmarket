@@ -3,11 +3,20 @@ import "../styles/globals.css";
 import { HelmetProvider } from "react-helmet-async";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { NextIntlClientProvider } from "next-intl";
+import { Amplify } from "aws-amplify";
+import awsconfig from "@/src/aws-exports";
+
 import { useRouter } from "next/router";
-import "../src/amplifyClient"; // Ensure Amplify is configured
+
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  Amplify.configure({
+    ...awsconfig,
+    aws_appsync_authenticationType: "API_KEY", 
+    ssr:true,
+  });
+  
 
   // Silence console logs in production only
   /*if (process.env.NODE_ENV === "production") {
