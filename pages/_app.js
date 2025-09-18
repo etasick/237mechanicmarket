@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   // Silence console logs in production only
-  if (process.env.NODE_ENV === "production") {
+  /*if (process.env.NODE_ENV === "production") {
     // Keep console.error if you still want to see critical errors in monitoring tools
     console.log = () => {};
     console.debug = () => {};
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
     console.warn = () => {};
     // If you *really* want to hide everything:
     console.error = () => {};
-  }
+  }*/
 
   return (
     <Authenticator.Provider>
