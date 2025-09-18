@@ -113,7 +113,7 @@ useEffect(() => {
 
   // Load more
  const loadMore = async () => {
-  router.replace(router.asPath)
+  
   if (!nextToken || loadingMore) return;
   setLoadingMore(true);
   try {
