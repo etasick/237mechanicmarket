@@ -135,8 +135,7 @@ const loadMore = async () => {
         filter: {
           status: { eq: "APPROVED" },
           categoryId: { eq: filters.categoryId },
-        },
-        authMode: "API_KEY",
+        }
       },
     });
 
