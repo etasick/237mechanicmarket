@@ -65,57 +65,67 @@ export default function HomePage() {
   });
 
   
-useEffect(() => {
+useEffect(() => { 
   (async () => {
     setLoading(true);
     try {
-      // Fetch categories
       const { data: cat } = await publicClient.graphql({ query: listCategories });
       const categoriesFetched = cat?.listCategories?.items ?? [];
       setCategories(categoriesFetched);
 
-      // Find "cars" category immediately
-      const carsCategory = categoriesFetched.find((c) => c.slug === "cars");
-      const categoryId =
-        carsCategory?.id || "386a1714-07d2-423b-9eff-e6c842f1a09b"; // fallback ID
+      const carsCategory = categoriesFetched.find((c) => c.slug === 'cars');
+      console.log("🚀 Found Cars category:", carsCategory);
 
-      // Save defaults
-      setDefaultCategoryId(categoryId);
-      setFilters((f) => ({ ...f, categoryId }));
+      if (!carsCategory) {
+        console.warn("⚠️ No Cars category found");
+        setLoading(false);
+        return;
+      }
 
-      // Fetch listings filtered by cars only 🔑
+      setDefaultCategoryId(carsCategory.id);
+      setFilters((f) => ({ ...f, categoryId: carsCategory.id }));
+
+      console.log("🔧 Initial fetch filters:", {
+        categoryId: carsCategory.id,
+        status: "APPROVED",
+      });
+
       const { data: lst } = await publicClient.graphql({
         query: listListingsWithCategory,
         variables: {
           limit: 12,
           filter: {
-            status: { eq: "APPROVED" },
-            categoryId: { eq: categoryId },
+            status: { eq: 'APPROVED' },
+            categoryId: { eq: carsCategory.id },
           },
         },
       });
 
-      const items = (lst?.listListings?.items ?? []).filter(
-        (i) => i?.status === "APPROVED"
-      );
+      const items = (lst?.listListings?.items ?? []).filter((i) => i?.status === 'APPROVED');
+      console.log("📦 Initial fetch results:", {
+        count: items.length,
+        nextToken: lst?.listListings?.nextToken,
+      });
+
       setListings(items);
       setNextToken(lst?.listListings?.nextToken ?? null);
     } catch (e) {
-      console.error("Init load error:", e);
+      console.error('❌ Init load error:', e);
     } finally {
       setLoading(false);
     }
   })();
 }, []);
 
-// Load more
 const loadMore = async () => {
-  if (!nextToken || loadingMore) return;
+  if (!nextToken || !filters.categoryId) {
+    console.log("⚠️ LoadMore skipped", { nextToken, categoryId: filters.categoryId });
+    return;
+  }
 
-  const categoryId =
-    filters?.categoryId || defaultCategoryId || "386a1714-07d2-423b-9eff-e6c842f1a09b";
+  console.log("➡️ LoadMore fired with:", { filters, nextToken });
 
-  setLoadingMore(true);
+  setLoading(true);
   try {
     const { data } = await publicClient.graphql({
       query: listListingsWithCategory,
@@ -124,27 +134,26 @@ const loadMore = async () => {
         nextToken,
         filter: {
           status: { eq: "APPROVED" },
-          categoryId: { eq: categoryId },
+          categoryId: { eq: filters.categoryId },
         },
       },
     });
 
-    const items = (data?.listListings?.items ?? []).filter(
-      (i) => i?.status === "APPROVED"
-    );
-    setListings((prev) => [...(prev ?? []), ...items]);
-    setNextToken(data?.listListings?.nextToken ?? null);
+    const newItems = data?.listListings?.items ?? [];
+    console.log("📥 LoadMore fetched:", {
+      count: newItems.length,
+      newNextToken: data?.listListings?.nextToken,
+    });
 
-    // Debug logs for production
-    console.log("LoadMore -> categoryId:", categoryId);
-    console.log("LoadMore -> items fetched:", items.length);
-    console.log("LoadMore -> new nextToken:", data?.listListings?.nextToken);
-  } catch (e) {
-    console.error("Load more error:", e);
+    setListings((prev) => [...prev, ...newItems]);
+    setNextToken(data?.listListings?.nextToken ?? null);
+  } catch (err) {
+    console.error("❌ LoadMore error:", err);
   } finally {
-    setLoadingMore(false);
+    setLoading(false);
   }
 };
+
 
 
 
