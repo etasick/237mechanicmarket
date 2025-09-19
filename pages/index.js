@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
 import RefreshPage from '@/components/RefreshPage';
-import loadMorePublicClient from '@/src/amplifyLoadMorePublicClient';
+
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -74,7 +74,7 @@ export default function HomePage() {
         publicClient.graphql({
           query: listListingsWithCategory,
           variables: {
-            limit: 12,
+            limit: 20,
             filter: {
               status: { eq: 'APPROVED' }, 
               categoryId: { eq:'386a1714-07d2-423b-9eff-e6c842f1a09b'|| filters.categoryId || defaultCategoryId  }
@@ -111,7 +111,7 @@ export default function HomePage() {
   if (!nextToken || loadingMore) return;
   setLoadingMore(true);
   try {
-    const { data } = await loadMorePublicClient.graphql({
+    const { data } = await publicClient.graphql({
       query: listListingsWithCategory,
       variables: {
         limit: 12,
@@ -170,6 +170,7 @@ export default function HomePage() {
         <title>{t('title')}</title>
         <meta name="description" content={t('description')} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="njSuMa2TbHxMluKs41yYF48EtnFjRuftXys0NL9Gz2w" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
