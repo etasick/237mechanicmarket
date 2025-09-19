@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
 import RefreshPage from '@/components/RefreshPage';
+import loadMorePublicClient from '@/src/amplifyLoadMorePublicClient';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -110,7 +111,7 @@ export default function HomePage() {
   if (!nextToken || loadingMore) return;
   setLoadingMore(true);
   try {
-    const { data } = await publicClient.graphql({
+    const { data } = await loadMorePublicClient.graphql({
       query: listListingsWithCategory,
       variables: {
         limit: 12,

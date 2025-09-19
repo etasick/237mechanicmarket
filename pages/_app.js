@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   Amplify.configure({
   ...awsconfig,
-  aws_appsync_authenticationType: "API_KEY", 
+  aws_appsync_authenticationType: "API_KEY",
   ssr:true,
 });
 
