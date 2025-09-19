@@ -129,7 +129,7 @@
       "title": "Modèles Populaires"
     },
     "others": {
-      "title": "Autres",
+      "title": "Divers",
       "allRegions": "Toutes les régions",
       "allCities": "Toutes les villes",
       "featuredListings": "Annonces en vedette",
@@ -444,7 +444,8 @@
       "loading": "Chargement des annonces...",
       "noResults": "Aucune voiture {manufacturer} trouvée.",
       "noResultsDefault": "Aucune voiture trouvée.",
-      "viewDetails": "Voir les détails"
+      "viewDetails": "Voir les détails",
+      "loadMore": "Charger plus"
     }
   },
   "CarsForSaleConditionPage": {
@@ -507,7 +508,8 @@
       "defaultTitle": "Voitures à vendre au Cameroun",
       "loading": "Chargement des annonces...",
       "noResults": "Aucune voiture trouvée pour le modèle {model}.",
-      "noResultsDefault": "Aucune voiture trouvée pour ce modèle."
+      "noResultsDefault": "Aucune voiture trouvée pour ce modèle.",
+      "loadMore": "Charger plus"
     }
   },
     "SignIn": {
@@ -717,6 +719,9 @@
   },
   "Common": {
     "manufacturer": "Fabricant",
+    "noMoreItems": "Aucun autre élément à charger.",
+    "loadMore": "Charger plus",
+    "loading": "Chargement des annonces...",
     "model": "Modèle",
     "year": "Année",
     "mileage": "Kilométrage",

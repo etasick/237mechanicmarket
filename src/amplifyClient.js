@@ -4,14 +4,13 @@ import awsconfig from "./aws-exports";
 
 // Configure Amplify with multi-auth
 Amplify.configure({
-  ...awsconfig,
-  aws_appsync_authenticationType: "API_KEY", 
+  ...awsconfig, 
   ssr:true,
 });
 
 // Default client (Cognito or whatever is in aws-exports)
-//export const authClient = generateClient({authMode:"userPool"});
+export const authClient = generateClient({authMode:"userPool"});
 
 // Public client (API key)
-//export const publicClient = generateClient({ authMode: "API_KEY" });
+export const publicClient = generateClient({ authMode: "API_KEY" });
 

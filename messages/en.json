@@ -147,7 +147,7 @@
       "title": "Popular Models"
     },
     "others": {
-      "title": "Others",
+      "title": "Miscellaneous",
       "allRegions": "All Regions",
       "allCities": "All Cities",
       "featuredListings": "Featured Listings",
@@ -460,7 +460,9 @@
       "loading": "Loading listings...",
       "noResults": "No {manufacturer} cars found.",
       "noResultsDefault": "No cars found.",
-      "viewDetails": "View Details"
+      "viewDetails": "View Details",
+       "loadMore": "Load more"
+    
     }
   },
   "CarsForSaleConditionPage": {
@@ -523,7 +525,8 @@
       "defaultTitle": "Cars for sale in Cameroon",
       "loading": "Loading listings...",
       "noResults": "No cars found for {model} model.",
-      "noResultsDefault": "No cars found for this model."
+      "noResultsDefault": "No cars found for this model.",
+      "loadMore": "Load more"
     }
   },
   "SignIn": {
@@ -733,6 +736,9 @@
   },
   "Common": {
     "manufacturer": "Manufacturer",
+    "noMoreItems": "No more items to load.",
+    "loading": "Loading listings...",
+    "loadMore": "Load more",
     "model": "Model",
     "year": "Year",
     "mileage": "Mileage",

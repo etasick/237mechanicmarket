@@ -153,11 +153,6 @@ const loadMore = async () => {
     setLoading(false);
   }
 };
-
-
-
-
-
   // Real-time filtered view
   const filtered = useMemo(() => {
     return listings.filter((item) => {

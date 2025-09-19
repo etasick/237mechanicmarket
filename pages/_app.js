@@ -3,31 +3,28 @@ import "../styles/globals.css";
 import { HelmetProvider } from "react-helmet-async";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { NextIntlClientProvider } from "next-intl";
+import { useRouter } from "next/router";
 import { Amplify } from "aws-amplify";
 import awsconfig from "@/src/aws-exports";
-
-import { useRouter } from "next/router";
-
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   Amplify.configure({
-    ...awsconfig,
-    aws_appsync_authenticationType: "API_KEY", 
-    ssr:true,
-  });
-  
+  ...awsconfig,
+  aws_appsync_authenticationType: "API_KEY", 
+  ssr:true,
+});
 
   // Silence console logs in production only
-  /*if (process.env.NODE_ENV === "production") {
-    // Keep console.error if you still want to see critical errors in monitoring tools
+  if (typeof window !== "undefined" && process.env.NODE_ENV === "production") {
+    // Keep console.error if you want critical errors
     console.log = () => {};
     console.debug = () => {};
     console.info = () => {};
     console.warn = () => {};
-    // If you *really* want to hide everything:
-    console.error = () => {};
-  }*/
+    // Uncomment if you want to silence errors too (not recommended!)
+    // console.error = () => {};
+  }
 
   return (
     <Authenticator.Provider>
