@@ -87,52 +87,33 @@ export default function CreateListingPage() {
 ];
 
   const locations = [
-  // Littoral
   'Douala',
   'Nkongsamba',
   'Loum',
-
-  // Centre
   'Yaoundé',
   'Mbalmayo',
   'Obala',
-
-  // West
   'Bafoussam',
   'Dschang',
   'Foumban',
-
-  // South West
   'Buea',
   'Limbe',
   'Kumba',
-
-  // North West
   'Bamenda',
   'Kumbo',
   'Ndop',
-
-  // North
   'Garoua',
   'Guider',
   'Poli',
-
-  // Far North
   'Maroua',
   'Kousséri',
   'Mora',
-
-  // East
   'Bertoua',
   'Batouri',
   'Yokadouma',
-
-  // Adamawa
   'Ngaoundéré',
   'Meiganga',
   'Tignère',
-
-  // South
   'Ebolowa',
   'Sangmélima',
   'Kribi',
