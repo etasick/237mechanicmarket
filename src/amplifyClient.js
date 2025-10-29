@@ -7,10 +7,10 @@ Amplify.configure({
   ...awsconfig, 
   ssr:true,
 });
-
 // Default client (Cognito or whatever is in aws-exports)
 export const authClient = generateClient({authMode:"userPool"});
 
 // Public client (API key)
 export const publicClient = generateClient({ authMode: "API_KEY" });
+
 

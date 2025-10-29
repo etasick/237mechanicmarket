@@ -47,7 +47,7 @@ export default function HomePage() {
   const [nextToken, setNextToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [defaultCategoryId, setDefaultCategoryId] = useState('');
+  const [defaultCategoryId, setDefaultCategoryId] = useState('386a1714-07d2-423b-9eff-e6c842f1a09b');
 
   
 
@@ -74,10 +74,10 @@ export default function HomePage() {
         publicClient.graphql({
           query: listListingsWithCategory,
           variables: {
-            limit: 20,
+            limit: 12,
             filter: {
               status: { eq: 'APPROVED' }, 
-              categoryId: { eq:'386a1714-07d2-423b-9eff-e6c842f1a09b'|| filters.categoryId || defaultCategoryId  }
+              categoryId: { eq:filters.categoryId || defaultCategoryId  }
       
             },
           },
@@ -111,6 +111,9 @@ export default function HomePage() {
   if (!nextToken || loadingMore) return;
   setLoadingMore(true);
   try {
+        
+    const currentCategoryId = filters.categoryId || defaultCategoryId;
+
     const { data } = await publicClient.graphql({
       query: listListingsWithCategory,
       variables: {
@@ -118,7 +121,7 @@ export default function HomePage() {
         nextToken,
         filter: {
           status: { eq: 'APPROVED' },
-          categoryId: { eq: filters.categoryId || defaultCategoryId || '386a1714-07d2-423b-9eff-e6c842f1a09b' },
+          categoryId: { eq:currentCategoryId },
         },
       },
     });
