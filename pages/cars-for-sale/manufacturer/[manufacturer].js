@@ -2,6 +2,7 @@ export const runtime = 'experimental-edge';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from 'next/head';
+import { client } from "@/lib/amplifyClient";
 import RefreshPage from "@/components/RefreshPage";
 import publicClient from "@/src/amplifyPublicClient";
 import { listCategories } from "@/src/graphql/queries";
