@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
+import { client } from "@/lib/amplifyClient";
 import Footer from '@/components/Footer';
 import { generateClient } from 'aws-amplify/api';
 import { useTranslations } from 'next-intl';
@@ -74,7 +75,7 @@ export default function HomePage() {
         publicClient.graphql({
           query: listListingsWithCategory,
           variables: {
-            limit: 20,
+            limit: 12,
             filter: {
               status: { eq: 'APPROVED' }, 
               categoryId: { eq:'386a1714-07d2-423b-9eff-e6c842f1a09b'||filters.categoryId || defaultCategoryId  }
