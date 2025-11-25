@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import publicClient from '@/src/amplifyPublicClient';
 import RefreshPage from '@/components/RefreshPage';
-
+import { client } from "@/lib/amplifyClient";
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
-import { client } from "@/lib/amplifyClient";
 import Footer from '@/components/Footer';
 import { generateClient } from 'aws-amplify/api';
 import { useTranslations } from 'next-intl';
@@ -14,7 +13,6 @@ import { listListings, listCategories } from '@/src/graphql/queries';
 import { listListingsWithCategory } from '@/src/graphql/customQueries';
 import TestNavigationButton from '@/components/TestNavigationButton';
 
-const client = generateClient();
 
 // ---------- Helpers ----------
 function parseSpecs(specs) {
